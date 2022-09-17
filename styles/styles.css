@@ -1,0 +1,25 @@
+.header-icons-container {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+header h1 {
+    margin-bottom: -40px;
+    text-align: center;
+}
+
+header img {
+    max-width: 72px;
+}
+
+.header-title {
+    display: flex;
+    border-bottom: 4px solid black;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.header-nozzle-logo {
+
+}
