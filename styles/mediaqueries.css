@@ -31,16 +31,17 @@
 
     .nav-menu-container ul {
         flex-direction: column;
+        margin-top: 50px;
     }
 
     .nav-menu-container.active {
         display: block;
         position: absolute;
         right: 0;
-        width: 30%;
+        width: 200px;
         height: 100%;
         top: 70px;
         transition: 0.4s ease-in-out;
     }
-
+    
 }
