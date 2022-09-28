@@ -21,13 +21,13 @@
 }
 
 .nav-menu-container li {
+    display: block;
     list-style-type: none;
-    width: 100%;
+ 
 }
 
 .nav-menu-container a {
     display: block;
-    padding: 21px 15px;
     color: var(--black);
     margin: 5px;
     font-size: var(--fs-navmenu);
