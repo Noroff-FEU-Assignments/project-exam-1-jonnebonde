@@ -1,21 +1,26 @@
-.header-icons-container {
+@import "./variables.css";
+@import "./header.css";
+@import "./mediaqueries.css";
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    background: linear-gradient(90deg, var(--black), var(--less-black));
+}
+
+nav, .nav-logo-container a  {
+    background-color: var(--light-orange);
+    color: var(--black);
     display: flex;
-    position: relative;
     justify-content: space-between;
-    align-items: flex-end;
-}
-header h1 {
-    margin-bottom: -40px;
-    text-align: center;
+    align-items: center;
 }
 
-header img {
-    max-width: 72px;
+a {
+    text-decoration: none;
 }
 
-.header-title {
-    display: flex;
-    border-bottom: 4px solid black;
-    width: 100%;
-    margin: 0 auto;
-}

@@ -1,0 +1,52 @@
+.nav-logo-container {
+    padding: 0 10px ;
+}
+
+.nav-logo-container span {
+    font-size: var(--fs-logo);
+}
+
+.nav-logo-container img {
+    max-height: 70px;
+}
+
+.nav-menu-container {
+    
+    margin: 0 auto;
+}
+
+.nav-menu-container ul {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-menu-container li {
+    list-style-type: none;
+}
+
+.nav-menu-container a {
+    padding: 21px 15px;
+    color: var(--black);
+    margin: 5px;
+    font-size: var(--fs-navmenu);
+}
+
+.nav-menu-container a:hover {
+    color: var(--light-orange);
+    background-color: var(--black);
+    
+}
+
+.nav-hamburgermenu-icon {
+    display: none;
+}
+
+.bar {
+    display: block;
+    width: 30px;
+    height: 5px;
+    margin: 5px auto;
+    transition: all 0.3s ease-in-out;
+    background-color: var(--black);
+    border-radius: 100px;
+}

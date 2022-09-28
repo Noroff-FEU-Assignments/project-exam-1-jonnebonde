@@ -1,0 +1,18 @@
+:root {
+    
+    
+    /* Colors */
+
+    --black: #000000 ;
+    --less-black: #3E3b3B;
+    --light-orange: #FC7E46;
+    --orange: #ff5f19;
+    --white: #ffffff;
+
+    /* font sizes */
+
+    --fs-logo: 2rem;
+    --fs-navmenu: 1.6rem;
+
+}
+
