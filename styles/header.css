@@ -19,23 +19,21 @@ nav, .nav-logo-container a  {
 }
 
 .nav-menu-container {
-    margin: 0 auto;
+    margin: 0 auto;    
 }
 
 .nav-menu-container ul {
     display: flex;
-    gap: 20px;
+    gap: 20px; 
 }
 
 .nav-menu-container li {
-    display: block;
     list-style-type: none;
 }
 
 .nav-menu-container a {
-    display: block;
+    padding: 20px 3px;
     color: var(--black);
-    margin: 5px;
     font-size: var(--fs-navmenu);
     font-weight: bold;
 }

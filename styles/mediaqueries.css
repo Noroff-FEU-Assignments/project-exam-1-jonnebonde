@@ -1,19 +1,11 @@
-/* media queries for fonts only */
-
-@media (max-width: 600px) {
-    :root {
-        --fs-logo: 1.3rem;
-    }
-}
 
 
 
 
-
-
-/* media queries for everything else than fonts */
 
 @media screen and (max-width: 900px){
+
+    /* header start */
 
     .nav-hamburgermenu-icon {
         display: block;
@@ -49,6 +41,12 @@
         margin-top: 50px;
     }
 
+    .nav-menu-container li,
+    .nav-menu-container a {
+        display: block;
+    }
+
+
     .nav-menu-container.active {
         display: block;
         position: absolute;
@@ -59,12 +57,50 @@
         transition: 0.4s ease-in-out;
         z-index: 2;
     }
+
+     /* header stop */
+
     
 }
 
+@media screen and (max-width: 600px) {
+
+    /* media queries for fonts only start*/
+
+    :root {
+        --fs-logo: 1.3rem;
+    }
+
+    /* media queries for fonts only stop*/
+
+    /* header start */
+
+    .nav-logo-container img {
+        max-height: 60px;
+    }
+
+    .nav-menu-container.active {
+        top: 60px;
+    }
+
+    /* header stop */
+
+}
+
+
 @media screen and (max-width: 500px) {
 
+    /* header start */
 
+    .nav-logo-container img {
+        max-height: 50px;
+    }
+
+    .nav-menu-container.active {
+        top: 50px;
+    }
+
+    /* header stop */
 
 
 }

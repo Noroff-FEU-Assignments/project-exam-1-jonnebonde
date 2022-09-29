@@ -1,17 +1,18 @@
-.main-top-image-container {
+/* main section for the index.html */
+
+.index-top-image-container {
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;   
-   
 }
 
-.main-top-image-container img {
+.index-top-image-container img {
     margin: 10px;
     width: 100%;
 }
 
-.main-top-image-container p {
+.index-top-image-container p {
     z-index: 1;
     position: absolute;
     color: var(--black);
