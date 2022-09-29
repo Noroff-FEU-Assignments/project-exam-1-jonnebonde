@@ -1,9 +1,17 @@
+nav, .nav-logo-container a  {
+    background-color: var(--light-orange);
+    color: var(--black);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .nav-logo-container {
     padding: 0 10px ;
 }
-
 .nav-logo-container span {
     font-size: var(--fs-logo);
+    font-weight: bold;
 }
 
 .nav-logo-container img {
@@ -29,6 +37,7 @@
     color: var(--black);
     margin: 5px;
     font-size: var(--fs-navmenu);
+    font-weight: bold;
 }
 
 .nav-menu-container a:hover {

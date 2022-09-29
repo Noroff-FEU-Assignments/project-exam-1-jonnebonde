@@ -1,0 +1,23 @@
+.main-top-image-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+   
+}
+
+.main-top-image-container img {
+    margin: 10px;
+    width: 100%;
+}
+
+.main-top-image-container p {
+    z-index: 1;
+    position: absolute;
+    color: var(--black);
+    font-size: var(--fs-logo);
+    font-weight: bold;
+    background-color: var(--light-orange);;
+    padding: 10px 30px;
+    border-radius: 3px;
+}

@@ -1,3 +1,18 @@
+/* media queries for fonts only */
+
+@media (max-width: 600px) {
+    :root {
+        --fs-logo: 1.3rem;
+    }
+}
+
+
+
+
+
+
+/* media queries for everything else than fonts */
+
 @media screen and (max-width: 900px){
 
     .nav-hamburgermenu-icon {
@@ -39,9 +54,17 @@
         position: absolute;
         right: 0;
         width: 200px;
-        height: 90%;
+        height: 100%;
         top: 70px;
         transition: 0.4s ease-in-out;
+        z-index: 2;
     }
     
+}
+
+@media screen and (max-width: 500px) {
+
+
+
+
 }

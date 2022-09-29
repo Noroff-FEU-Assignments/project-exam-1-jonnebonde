@@ -1,6 +1,10 @@
 @import "./variables.css";
 @import "./header.css";
+@import "./main.css";
 @import "./mediaqueries.css";
+
+
+/* global values */
 
 * {
     padding: 0;
@@ -12,12 +16,9 @@ html {
     background: linear-gradient(90deg, var(--black), var(--less-black));
 }
 
-nav, .nav-logo-container a  {
-    background-color: var(--light-orange);
-    color: var(--black);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+main {
+    margin: 0 auto;
+    max-width: 1050px;
 }
 
 a {
