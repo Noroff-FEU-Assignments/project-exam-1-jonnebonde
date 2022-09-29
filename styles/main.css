@@ -7,9 +7,14 @@
     align-items: center;   
 }
 
-.index-top-image-container img {
-    margin: 10px;
-    width: 100%;
+.index-top-image-container {
+    background-image: url(../media/images/IMG_2758.jpg);
+    height: 500px;
+    width: 90%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 10px auto;
 }
 
 .index-top-image-container p {
