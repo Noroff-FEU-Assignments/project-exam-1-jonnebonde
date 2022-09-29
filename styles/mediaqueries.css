@@ -60,10 +60,20 @@
 
      /* header stop */
 
+     /* index main start */
+
+    .index-top-image-container {
+        height: 350px;
+    }
+
+     /* index main stop */
+
+
+
     
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 650px) {
 
     /* media queries for fonts only start*/
 
@@ -84,6 +94,12 @@
     }
 
     /* header stop */
+
+    /* index main start */
+
+    .index-top-image-container {
+        height: 250px;
+    }
 
 }
 
