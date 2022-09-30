@@ -17,7 +17,7 @@
     margin: 10px auto;
 }
 
-.index-top-image-container p {
+.index-top-image-container h1 {
     z-index: 1;
     position: absolute;
     color: var(--black);
@@ -28,11 +28,25 @@
     border-radius: 3px;
 }
 
+.index-latest-post-header {
+    width: 90%;
+    margin: 40px auto;
+}
+
+
+.index-latest-post-header h2 {
+    color: var(--white);
+    text-align: center;
+}
+
+.index-latest-post-header-underline {
+    border-top: 3px solid var(--light-orange);
+    border-radius: 10px;
+}
+
 .index-latest-post-carousel {
     width: 90%;
     margin: 0 auto;
     height: 600px;
     background-color: aliceblue;
-
-    
 }
