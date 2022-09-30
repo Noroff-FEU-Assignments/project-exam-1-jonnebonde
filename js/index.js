@@ -1,3 +1,4 @@
+
 // hamburger menu 
 
 const toggleButton = document.querySelector(".nav-hamburgermenu-icon");
@@ -14,3 +15,4 @@ document.addEventListener("click", function (e) {
         navMenu.classList.remove("active")
     }
 });
+

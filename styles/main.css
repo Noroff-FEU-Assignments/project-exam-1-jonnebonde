@@ -9,7 +9,7 @@
 
 .index-top-image-container {
     background-image: url(../media/images/IMG_2758.jpg);
-    height: 500px;
+    height: 600px;
     width: 90%;
     background-position: center;
     background-repeat: no-repeat;
@@ -26,4 +26,13 @@
     background-color: var(--light-orange);;
     padding: 10px 30px;
     border-radius: 3px;
+}
+
+.index-latest-post-carousel {
+    width: 90%;
+    margin: 0 auto;
+    height: 600px;
+    background-color: aliceblue;
+
+    
 }
