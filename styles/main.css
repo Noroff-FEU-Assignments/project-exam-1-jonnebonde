@@ -45,8 +45,14 @@
 }
 
 .index-latest-post-carousel {
+    display: block;
     width: 90%;
     margin: 0 auto;
     height: 500px;
     background-color: aliceblue;
+}
+
+.index-latest-post-carousel img {
+    max-height: 600px;
+    
 }

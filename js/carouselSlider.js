@@ -5,27 +5,27 @@ import {url, carouselContainer} from "../js/constants.js"
 // API call //
 
 
-/* 
+
 async function apiCarousel(){
 
     try{
         const blogs = await apiCall(url)
         console.log(blogs)
 
-        const parser = new DOMParser();
+        const date = new Date(blogs[1].date).toLocaleDateString("utc", {
+            year: "numeric",
+            month: "long",
+            day: "2-digit",
+        });
 
-        function extractImagesFromBlogPosts(htmlstring) {
-            const doc = parser.parseFromString(htmlstring, "text/html");
-            return doc.querySelectorAll("img")
-        }
-
-        const imgs = extractImagesFromBlogPosts(blogs[0].content.rendered)
-
-        console.log(imgs)
+        console.log(date)
 
         carouselContainer.innerHTML = `
-        <img class="featured-image" src="${blogs[0]._embedded["wp:featuredmedia"][0].source_url}">
-        <img src="${imgs[0].img}">
+        <span>Author: ${blogs[1]._embedded.author[0].name} Posted: ${date}</span>
+        <h1>${blogs[1].title.rendered}</h1>
+        <img src="${blogs[1]._embedded["wp:featuredmedia"][0].source_url}">
+        <div>${blogs[1].content.rendered}</div>
+        
         `
 
 
@@ -35,4 +35,4 @@ async function apiCarousel(){
     }
 }
 
-apiCarousel() */
+apiCarousel()
