@@ -1,0 +1,69 @@
+/* product */
+.index-latest-post-carousel {
+    position: relative;
+    overflow: hidden;
+    background-color: aliceblue;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* product-container*/
+.index-post-container {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    gap: 20px;
+}
+
+.index-post-container::-webkit-scrollbar {
+    display: none;
+}
+
+/* product - card*/
+.carousel-post {
+    display: flex;
+    flex: 0 0 auto;
+    width: 250px;
+    height: 250px;
+    border: 1px solid black;
+    color: black;
+    border-radius: 10px;
+}
+
+.carousel-post-text {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* remember to check all images and adjust css  */
+.carousel-post img {
+    position: relative; 
+    max-height: 250px;
+    max-width: 100px;
+    overflow: hidden;
+}
+
+.previous-btn,
+.next-btn {
+    border: none;
+    width: 3vw;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background-color: aquamarine;
+    z-index: 10;
+    font-size: 30px;
+}
+
+.previous-btn {
+    left: 0;
+}
+
+.next-btn {
+    right: 0;
+}

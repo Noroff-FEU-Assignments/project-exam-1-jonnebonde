@@ -1,5 +1,6 @@
 @import "./variables.css";
 @import "./header.css";
+@import "./carouselslider.css";
 @import "./main.css";
 @import "./mediaqueries.css";
 
@@ -18,7 +19,6 @@ html {
 
 main {
     margin: 0 auto;
-    max-width: 1400px;
 }
 
 a {

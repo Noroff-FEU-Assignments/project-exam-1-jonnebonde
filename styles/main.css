@@ -4,7 +4,8 @@
     position: relative;
     display: flex;
     justify-content: center;
-    align-items: center;   
+    align-items: center;
+    max-width: 1400px;
 }
 
 .index-top-image-container {
@@ -42,17 +43,4 @@
 .index-latest-post-header-underline {
     border-top: 3px solid var(--light-orange);
     border-radius: 10px;
-}
-
-.index-latest-post-carousel {
-    display: block;
-    width: 90%;
-    margin: 0 auto;
-    height: 500px;
-    background-color: aliceblue;
-}
-
-.index-latest-post-carousel img {
-    max-height: 600px;
-    
 }
