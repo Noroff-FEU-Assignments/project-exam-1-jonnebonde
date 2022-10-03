@@ -2,9 +2,6 @@ import {apiCall} from "../js/utils.js"
 import {url, carouselContainer} from "../js/constants.js"
 
 
-
-
-
 // API call //
 
 const sliderUrl = url + "&per_page=10";
@@ -85,8 +82,7 @@ function makePostCarouselSLiderHtml(blogs) {
             day: "2-digit",
         });
 
-
-     
+        
         carouselContainer.innerHTML += `
 
         <div class="carousel-post">
