@@ -47,7 +47,6 @@ async function apiCarousel(){
 apiCarousel()
 
 
-
 function slideCarousel(carouselBtn, blogs) {
     const blogCarouselIndex = parseInt(getComputedStyle(carouselContainer).getPropertyValue("--blog-carousel-index"));
     const blogsPerScreen = parseInt(getComputedStyle(carouselContainer).getPropertyValue("--blogs-per-screen"));
