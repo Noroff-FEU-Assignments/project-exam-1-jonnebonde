@@ -7,7 +7,7 @@ import {url, carouselContainer} from "../js/constants.js"
 
 // API call //
 
-const sliderUrl = url + "&per_page=20";
+const sliderUrl = url + "&per_page=10";
 
 
 async function apiCarousel(){
@@ -55,25 +55,19 @@ function slideCarousel(carouselBtn, blogs) {
 
     if(carouselBtn.classList.contains("previous-btn")) {
         if(blogCarouselIndex - 1 < 0) {
-            
             carouselContainer.style.setProperty("--blog-carousel-index" - 1);
-            
         } else {
-            
             carouselContainer.style.setProperty("--blog-carousel-index", blogCarouselIndex - 1)
         }
     }
 
     if(carouselBtn.classList.contains("next-btn")) {
         if(blogCarouselIndex + 1 >=  blogCount / blogsPerScreen) {
-            
             carouselContainer.style.setProperty("--blog-carousel-index", 0);
         } else {
-            
             carouselContainer.style.setProperty("--blog-carousel-index", blogCarouselIndex + 1)
         }
     }
-
 
 }
 

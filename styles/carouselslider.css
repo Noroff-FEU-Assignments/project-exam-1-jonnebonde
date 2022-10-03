@@ -6,7 +6,6 @@
     background-color: aliceblue;
     max-width: 1400px;
     margin: 0 auto;
-    padding: 10px;
 }
 
 .blog-post-carousel-container {
@@ -18,8 +17,6 @@
     width: calc(100% - 119px);
     transform:  translateX(calc(var(--blog-carousel-index) * -100%));
     transition: transform 100ms ease-in-out;
-    gap: 20px;
-    margin: 0 40px;
 }
 
 .blog-post-carousel-container::-webkit-scrollbar {
@@ -28,13 +25,15 @@
 
 .blog-post-carousel-container > .carousel-post {
     flex: 0 0 calc(100% / var(--blogs-per-screen));
-    max-width: calc(90% / var(--blogs-per-screen));
+    max-width: calc(100% / var(--blogs-per-screen) - 20px);
     aspect-ratio: 16 / 9;
     border: 1px solid black;
     color: black;
     border-radius: 10px;
     background-color: aliceblue;
+    margin: 10px;
 }
+
 
 .carousel-post-text {
     display: flex;
