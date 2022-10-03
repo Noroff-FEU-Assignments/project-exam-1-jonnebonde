@@ -4,8 +4,8 @@
     justify-content: center;
     overflow: hidden;
     background-color: aliceblue;
-    max-width: 1400px;
     margin: 0 auto;
+    width: 90%;
 }
 
 .blog-post-carousel-container {
