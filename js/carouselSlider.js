@@ -7,7 +7,7 @@ import {url, carouselContainer} from "../js/constants.js"
 
 // API call //
 
-const sliderUrl = url + "&per_page=14";
+const sliderUrl = url + "&per_page=20";
 
 
 async function apiCarousel(){
@@ -18,6 +18,26 @@ async function apiCarousel(){
 
         makePostCarouselSLiderHtml(blogs)
 
+        /* blogpost carousel slider made with inspiration and i give credits to https://www.youtube.com/watch?v=yq4BeRtUHbk */
+
+        document.addEventListener("click", (e) => {
+
+            let carouselBtn;
+
+            if(e.target.matches(".carousel-btn")) {
+                carouselBtn = e.target;
+            } else {
+                carouselBtn = e.target.closest(".carousel-btn");
+            }
+
+            if(carouselBtn != null) {
+                slideCarousel(carouselBtn, blogs)
+            }
+
+
+        });
+
+
     }
     catch{
 
@@ -26,25 +46,38 @@ async function apiCarousel(){
 
 apiCarousel()
 
-/* blogpost carousel slider */
-
-const carouselContainers = [...document.querySelectorAll(".index-post-container")];
-const nextSlideButton = [...document.querySelectorAll(".next-btn")];
-const previousSlideButton = [...document.querySelectorAll(".previous-btn")];
 
 
-carouselContainers.forEach((item, i) => {
-    let containerDimensions = item.getBoundingClientRect();
-    let containerWidth = containerDimensions.width;
+function slideCarousel(carouselBtn, blogs) {
+    const blogCarouselIndex = parseInt(getComputedStyle(carouselContainer).getPropertyValue("--blog-carousel-index"));
+    const blogsPerScreen = parseInt(getComputedStyle(carouselContainer).getPropertyValue("--blogs-per-screen"));
+    const blogCount = blogs.length;
+    console.log(blogCount)
 
-    nextSlideButton[i].addEventListener("click", () => {
-        item.scrollLeft += containerWidth;
-    })
+    if(carouselBtn.classList.contains("previous-btn")) {
+        if(blogCarouselIndex - 1 < 0) {
+            
+            carouselContainer.style.setProperty("--blog-carousel-index" - 1);
+            
+        } else {
+            
+            carouselContainer.style.setProperty("--blog-carousel-index", blogCarouselIndex - 1)
+        }
+    }
 
-    previousSlideButton[i].addEventListener("click", () => {
-        item.scrollLeft -= containerWidth;
-    })
-})
+    if(carouselBtn.classList.contains("next-btn")) {
+        if(blogCarouselIndex + 1 >=  blogCount / blogsPerScreen) {
+            
+            carouselContainer.style.setProperty("--blog-carousel-index", 0);
+        } else {
+            
+            carouselContainer.style.setProperty("--blog-carousel-index", blogCarouselIndex + 1)
+        }
+    }
+
+
+}
+
 
 
 /* making html */
