@@ -24,7 +24,7 @@
     position: absolute;
     color: var(--black);
     font-size: var(--fs-logo);
-    font-weight: bold;
+    font-family: "roboto";
     background-color: var(--light-orange);;
     padding: 10px 30px;
     border-radius: 4px;
@@ -38,6 +38,7 @@
 .index-latest-post-header h2 {
     color: var(--white);
     text-align: center;
+    font-family: "roboto";
 }
 
 .index-latest-post-header-underline {

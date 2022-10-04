@@ -3,7 +3,6 @@
     display: flex;
     justify-content: center;
     overflow: hidden;
-    background-color: aliceblue;
     margin: 0 auto;
     width: 90%;
     border-radius: 5px;
@@ -14,9 +13,8 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    justify-content: space-between;
+    justify-content: space-around;
     color: var(--black);
-    
 }
 
 .blog-post-carousel-container {
@@ -34,8 +32,6 @@
     flex: 0 0 calc(100% / var(--blogs-per-screen));
     max-width: calc(100% / var(--blogs-per-screen) - 20px);
     aspect-ratio: 16 / 9;
-    border: 1px solid black;
-    color: black;
     border-radius: 5px;
     margin: 10px;
     background-color: var(--white);
@@ -45,41 +41,48 @@
     position: relative;
 }
 
-.carousel-post-text {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.carousel-post-text h2 {
-    margin-top: 5px;
+.carousel-post-title h2 {
     text-align: center;
+    font-family: "roboto";
 }
 
 .carousel-post-text span {
-    text-align: left;
-    margin-left: 1em;
-    font-size: 1em;
+    text-align: center;
+    margin-left: 10px;
+    font-size: 0.7em;
+    font-family: "opensans";
 }
 
-.carousel-readmore,
+.carousel-readmore {
+    position: absolute;
+    bottom: 40%;
+    width: 100%;
+    height: 20%;
+    visibility: hidden;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+
 .carousel-readmore-background {
     position: absolute;
     bottom: 0;
     width: 100%;
-    height: 20%;
-    padding: 10px;
+    height: 100%;
     visibility: hidden;
 }
 
 .carousel-readmore {
     text-align: center;
     font-size: 2rem;
+    background-color: var(--light-orange);
 }
 
 .carousel-readmore-background {
-    background-color: var(--orange);
-    opacity: 0.8;
+    background-color: var(--black);
+    opacity: 0.4;
 }
 
 .carousel-post:hover .carousel-readmore{
@@ -88,6 +91,11 @@
 
 .carousel-post:hover .carousel-readmore-background{
     visibility: visible;
+}
+
+.carousel-readmore:hover {
+    background-color: var(--black);
+    color: var(--light-orange);
 }
 
 
@@ -103,6 +111,7 @@
     border-radius: 0 0 4px 4px ;
     margin: 3px;
 }
+
 
 .carousel-btn {
     flex-grow: 0;

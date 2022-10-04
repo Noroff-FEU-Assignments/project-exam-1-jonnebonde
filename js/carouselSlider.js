@@ -84,16 +84,17 @@ function makePostCarouselSLiderHtml(blogs) {
 
         <div class="carousel-post">
             <a href="*">
-                <div class="carousel-post-text">
+                <div class="carousel-post-title">
                     <h2>${blogPosts.title.rendered}</h2>
-                    
                 </div>
                     <div class="carousel-img-container" style="background-image: url(${blogPosts._embedded["wp:featuredmedia"][0].source_url})">
                 </div>
                 <div class="carousel-readmore-background"></div>
                 <span class="carousel-readmore">Read more</span>
-                <span>Author: ${blogPosts._embedded.author[0].name}</span>
-                <span>Posted: ${date}</span>
+                <div class="carousel-post-text">
+                    <span><strong>Author:</strong> ${blogPosts._embedded.author[0].name}</span>
+                    <span><strong>Posted:</strong> ${date}</span>
+                </div>
             </a>
         </div>
         `

@@ -1,9 +1,11 @@
-nav, .nav-logo-container a  {
+nav, 
+.nav-logo-container a  {
     background-color: var(--light-orange);
     color: var(--black);
     display: flex;
     justify-content: space-between;
     align-items: center;
+    font-family: "roboto";
 }
 
 .nav-logo-container {
