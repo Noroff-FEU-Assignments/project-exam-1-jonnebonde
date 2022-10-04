@@ -41,11 +41,14 @@ async function apiCarousel() {
 apiCarousel()
 
 
+/* Carousel function  */
+
 function slideCarousel(carouselBtn, blogs) {
     const blogCarouselIndex = parseInt(getComputedStyle(carouselContainer).getPropertyValue("--blog-carousel-index"));
     const blogsPerScreen = parseInt(getComputedStyle(carouselContainer).getPropertyValue("--blogs-per-screen"));
     const blogCount = blogs.length;
-    console.log(blogCount)
+    console.log(blogCarouselIndex)
+
 
     if (carouselBtn.classList.contains("previous-btn")) {
         if (blogCarouselIndex - 1 < 0) {
