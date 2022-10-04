@@ -6,6 +6,7 @@
     justify-content: center;
     align-items: center;
     width: 80%;
+    border-radius: 4px;
 }
 
 .index-top-image-container {
@@ -26,7 +27,7 @@
     font-weight: bold;
     background-color: var(--light-orange);;
     padding: 10px 30px;
-    border-radius: 3px;
+    border-radius: 4px;
 }
 
 .index-latest-post-header {
