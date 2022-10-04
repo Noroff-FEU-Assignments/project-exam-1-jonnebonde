@@ -1,16 +1,13 @@
-import {apiCall} from "../js/utils.js"
-import {url, carouselContainer} from "../js/constants.js"
+import { apiCall } from "../js/utils.js"
+import { url, carouselContainer } from "../js/constants.js"
 
 
 // API call //
 
-const sliderUrl = url + "&per_page=10";
+async function apiCarousel() {
 
-
-async function apiCarousel(){
-
-    try{
-        const blogs = await apiCall(sliderUrl)
+    try {
+        const blogs = await apiCall(url)
         console.log(blogs)
 
         makePostCarouselSLiderHtml(blogs)
@@ -21,22 +18,20 @@ async function apiCarousel(){
 
             let carouselBtn;
 
-            if(e.target.matches(".carousel-btn")) {
+            if (e.target.matches(".carousel-btn")) {
                 carouselBtn = e.target;
             } else {
                 carouselBtn = e.target.closest(".carousel-btn");
             }
 
-            if(carouselBtn != null) {
+            if (carouselBtn != null) {
                 slideCarousel(carouselBtn, blogs)
             }
 
-
         });
 
-
     }
-    catch{
+    catch {
 
     }
 }
@@ -50,16 +45,16 @@ function slideCarousel(carouselBtn, blogs) {
     const blogCount = blogs.length;
     console.log(blogCount)
 
-    if(carouselBtn.classList.contains("previous-btn")) {
-        if(blogCarouselIndex - 1 < 0) {
+    if (carouselBtn.classList.contains("previous-btn")) {
+        if (blogCarouselIndex - 1 < 0) {
             carouselContainer.style.setProperty("--blog-carousel-index" - 1);
         } else {
             carouselContainer.style.setProperty("--blog-carousel-index", blogCarouselIndex - 1)
         }
     }
 
-    if(carouselBtn.classList.contains("next-btn")) {
-        if(blogCarouselIndex + 1 >=  blogCount / blogsPerScreen) {
+    if (carouselBtn.classList.contains("next-btn")) {
+        if (blogCarouselIndex + 1 >= blogCount / blogsPerScreen) {
             carouselContainer.style.setProperty("--blog-carousel-index", 0);
         } else {
             carouselContainer.style.setProperty("--blog-carousel-index", blogCarouselIndex + 1)
@@ -82,19 +77,21 @@ function makePostCarouselSLiderHtml(blogs) {
             day: "2-digit",
         });
 
-        
+
         carouselContainer.innerHTML += `
 
         <div class="carousel-post">
-            <div class="carousel-post-text">
-            <span>${blogPosts.title.rendered}</span>
-            <span>Author: ${blogPosts._embedded.author[0].name}</span>
-            <span>Posted: ${date}</span>
-            <a href="*">read more</a>
-            </div>
-            <div>
-            <img src="${blogPosts._embedded["wp:featuredmedia"][0].source_url}">
-            </div>
+            <a href="*">
+                <div class="carousel-post-text">
+                    <h2>${blogPosts.title.rendered}</h2>
+                    <span>Author: ${blogPosts._embedded.author[0].name}</span>
+                    <span>Posted: ${date}</span>
+                    
+                </div>
+                <div class="carousel-img-container" style="background-image: url(${blogPosts._embedded["wp:featuredmedia"][0].source_url})">
+                </div>
+            </a>
+        </div>
         `
     })
 }
