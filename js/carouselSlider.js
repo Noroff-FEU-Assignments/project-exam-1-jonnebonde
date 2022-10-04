@@ -69,12 +69,14 @@ function slideCarousel(carouselBtn, blogs) {
 }
 
 
-
-/* making html */
+/* making html for carousel */
 
 function makePostCarouselSLiderHtml(blogs) {
 
     blogs.forEach(function (blogPosts) {
+
+
+        /* "filtering" the date format to have day, month and year */
 
         const date = new Date(blogPosts.date).toLocaleDateString("utc", {
             year: "numeric",
@@ -84,7 +86,6 @@ function makePostCarouselSLiderHtml(blogs) {
 
 
         carouselContainer.innerHTML += `
-
         <div class="carousel-post">
             <a href="*">
                 <div class="carousel-post-title">
