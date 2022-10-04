@@ -52,6 +52,7 @@
 }
 
 .carousel-post-text h2 {
+    margin-top: 5px;
     text-align: center;
 }
 
@@ -61,22 +62,33 @@
     font-size: 1em;
 }
 
-.carousel-readmore {
+.carousel-readmore,
+.carousel-readmore-background {
     position: absolute;
     bottom: 0;
     width: 100%;
     height: 20%;
-    text-align: center;
-    font-size: 2rem;
-    background-color: 0.6 var(--orange);
     padding: 10px;
     visibility: hidden;
 }
 
-.carousel-post:hover .carousel-readmore {
+.carousel-readmore {
+    text-align: center;
+    font-size: 2rem;
+}
+
+.carousel-readmore-background {
+    background-color: var(--orange);
+    opacity: 0.8;
+}
+
+.carousel-post:hover .carousel-readmore{
     visibility: visible;
 }
 
+.carousel-post:hover .carousel-readmore-background{
+    visibility: visible;
+}
 
 
 /* remember to check all images and adjust css  */
@@ -86,9 +98,10 @@
     background-repeat: no-repeat;
     background-size: cover;
     height: 250px;
-    width: 100%;
+    width: auto;
     max-height: 250px;
-    border-radius: 0 4px 4px 0;
+    border-radius: 0 0 4px 4px ;
+    margin: 3px;
 }
 
 .carousel-btn {

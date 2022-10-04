@@ -3,11 +3,13 @@ import { url, carouselContainer } from "../js/constants.js"
 
 
 // API call //
+const latestPostUrl = url + "&per_page=15"
+
 
 async function apiCarousel() {
 
     try {
-        const blogs = await apiCall(url)
+        const blogs = await apiCall(latestPostUrl)
         console.log(blogs)
 
         makePostCarouselSLiderHtml(blogs)
@@ -84,12 +86,14 @@ function makePostCarouselSLiderHtml(blogs) {
             <a href="*">
                 <div class="carousel-post-text">
                     <h2>${blogPosts.title.rendered}</h2>
-                    <span>Author: ${blogPosts._embedded.author[0].name}</span>
-                    <span>Posted: ${date}</span>
+                    
                 </div>
                     <div class="carousel-img-container" style="background-image: url(${blogPosts._embedded["wp:featuredmedia"][0].source_url})">
                 </div>
+                <div class="carousel-readmore-background"></div>
                 <span class="carousel-readmore">Read more</span>
+                <span>Author: ${blogPosts._embedded.author[0].name}</span>
+                <span>Posted: ${date}</span>
             </a>
         </div>
         `
