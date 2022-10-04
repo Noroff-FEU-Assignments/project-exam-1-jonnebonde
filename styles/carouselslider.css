@@ -125,10 +125,14 @@
     border: 1px solid var(--white);
 }
 
-.carousel-btn:hover {
-    color: var(--black);
-    background-color: var(--white);
+@media (hover: hover){
+    .carousel-btn:hover {
+        color: var(--black);
+        background-color: var(--white);
+    }
 }
+
+
 
 .next-btn {
     border-radius: 0 5px 5px 0; 

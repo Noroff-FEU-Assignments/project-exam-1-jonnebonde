@@ -92,6 +92,8 @@
     
 }
 
+@media (hover: none) {
+
 @media screen and (max-width: 650px) {
 
     /* media queries for fonts only start*/
@@ -130,11 +132,14 @@
 
     .carousel-btn {
         width: 30px;
-
     }
 
+    
+    .carousel-btn:active {
+        color: var(--black);
+        background-color: var(--white);
+    }
 }
-
 
 @media screen and (max-width: 500px) {
 
@@ -151,4 +156,5 @@
     /* header stop */
 
 
+}
 }
