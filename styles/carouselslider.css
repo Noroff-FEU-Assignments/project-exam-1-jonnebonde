@@ -35,7 +35,6 @@
     border-radius: 5px;
     margin: 10px;
     background-color: var(--white);
-    display: flex;
     height: 350px;
     max-height: 350px;
     position: relative;
@@ -44,12 +43,12 @@
 .carousel-post-title h2 {
     text-align: center;
     font-family: "roboto";
+    font-size: 1.2em;
 }
 
-.carousel-post-text span {
+.carousel-post-text{
     text-align: center;
-    margin-left: 10px;
-    font-size: 0.7em;
+    font-size: 0.8em;
     font-family: "opensans";
 }
 
@@ -71,6 +70,8 @@
     width: 100%;
     height: 100%;
     visibility: hidden;
+    background-color: var(--black);
+    opacity: 0.4;
 }
 
 .carousel-readmore {
@@ -79,10 +80,7 @@
     background-color: var(--light-orange);
 }
 
-.carousel-readmore-background {
-    background-color: var(--black);
-    opacity: 0.4;
-}
+
 
 .carousel-post:hover .carousel-readmore{
     visibility: visible;
@@ -131,8 +129,6 @@
         background-color: var(--white);
     }
 }
-
-
 
 .next-btn {
     border-radius: 0 5px 5px 0; 
