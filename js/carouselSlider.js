@@ -98,13 +98,14 @@ function makePostCarouselSLiderHtml(blogs) {
                 <div class="carousel-post-text">
                     <span><strong>Author:</strong> ${blogPosts._embedded.author[0].name}</span>
                     <span><strong>Posted:</strong> ${date}</span>
-                    <div class="carousel-category">
-                        <button><a href="*">${blogPosts._embedded["wp:term"][0][0].name}</a><button>
-                    </div>
                 </div>
-                
+                <div class="carousel-category">
+                    <span><strong>Category:</strong> ${blogPosts._embedded["wp:term"][0][0].name}</span>
+                </div>
             </a>
+            
         </div>
+        
         `
     })
 }
