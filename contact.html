@@ -8,22 +8,22 @@
   <meta name="description" content="A blog about 3D-printing as a hobby"/>
   <meta name="keywords" content="3D-printing, blog, hobby, filament, practical" />
   <meta name="author" content="Jonne Martin Krosby jan21PT" />
-  <title>3D-Printing For All | Home</title>
+  <title>3D-Printing For All | Contact</title>
   <link rel="icon" type="png" href="./media/3d-printing_favicon.png" />
   <link href="./styles/styles.css" rel="stylesheet" />
   <!-- Hotjar Tracking Code for 3D-printing for all -->
-<script>
-  (function(h,o,t,j,a,r){
-      h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-      h._hjSettings={hjid:3214073,hjsv:6};
-      a=o.getElementsByTagName('head')[0];
-      r=o.createElement('script');r.async=1;
-      r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+  <script>
+    (function (h, o, t, j, a, r) {
+      h.hj = h.hj || function () { (h.hj.q = h.hj.q || []).push(arguments) };
+      h._hjSettings = { hjid: 3214073, hjsv: 6 };
+      a = o.getElementsByTagName('head')[0];
+      r = o.createElement('script'); r.async = 1;
+      r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
       a.appendChild(r);
-  })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-</script>
+    })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
+  </script>
 </head>
-<body>
+<body class="fix-footer">
   <header>
     <nav>
       <div class="nav-logo-container">
@@ -39,44 +39,48 @@
       </div>
       <div class="nav-menu-container">
         <ul>
-          <li><a class="active-page" href="index.html">Home</a></li>
+          <li><a href="index.html">Home</a></li>
           <li><a href="blog.html">Blog</a></li>
           <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a class="active-page" href="contact.html">Contact</a></li>
         </ul>
       </div>
     </nav>
   </header>
   <main>
-    <div class="index-top-image-container"></div>
-    <div class="index-hello-container flex-col-center">
-      <h1>Welcome to 3D-printing For All</h1>
-      <div class="index-hello-text">
-        <p>
-          3D-Printing for all is a blog about sharing my hobby, 3D-printing
-          and the things that i can make with it. I have loved this hobby since i
-          bought my first 3D-printer in 2016. The things that you can make are
-          only limited by your own imagination.
-        </p>
-      </div>
-      <a href="about.html">Read more about</a>
-    </div>
     <div class="section-title">
-      <h2>Latest Posts</h2>
+      <h1>Contact</h1>
       <div class="section-title-underline"></div>
     </div>
-    <div class="blog-post-carousel flex-justify-center">
-      <button class="carousel-btn previous-btn flex-justify-center-col-center">&#8249;</button>
-          <div class="blog-post-carousel-container flex">
-            <span class="loaderslider"></span>
-          </div>
-          <button class="carousel-btn next-btn flex-justify-center-col-center">&#8250;</button>
+    <div class="contact-text-container flex-col">
+      <span>You just wanna say hello?</span>
+      <span>Contribute to the blog?</span>
+      <span>I want to hear from via you</span>
     </div>
-    <div class="section-title popular">
-      <h2>Most popular posts</h2>
-      <div class="section-title-underline"></div>
-    </div>
-    <div class="index-most_popular-posts-container flex-justify-center ">
+    <div class="form-container">
+      <form id="contactForm" class="contact-form flex-col">
+        <input name="hidden" id="hidden" hidden />
+        <label class="name">Name(required)
+          <input name="name" id="name" />
+        </label>
+        <div class="input_error" id="nameError">Please write a name, min 5 characters</div>
+        <label class="subject" for="subject">Subject(required)
+          <input name="subject" id="subject" />
+        </label>
+        <div class="input_error" id="subjectError">Please write a subject, min 15 characters</div>
+        <label class="email">Email(required)
+          <input name="email" id="email" />
+        </label>
+        <div class="input_error" id="emailError">Email is not in the correct format</div>
+        <label class="message">Message(required)
+          <textarea name="message" id="message" placeholder="min. 25 characters"></textarea>
+        </label>
+        <div class="input_error" id="messageError">Please enter atleast 25 characters</div>
+        <div class="contact-form-success"></div>
+        <div class="submit_btn">
+          <button class="submit filter-button">Submit</button>
+        </div>
+      </form>
     </div>
   </main>
 </body>
@@ -113,6 +117,6 @@
     <span>This site is made by Jonne Martin Krosby noroff 21janPT</span>
   </div>
 </footer>
+<script src="./js/contact.js" type="module"></script>
 <script src="./js/index.js" type="module"></script>
-<script src="./js/Components/slider.js" type="module"></script>
 </html>

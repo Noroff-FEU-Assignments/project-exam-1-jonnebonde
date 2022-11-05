@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -8,7 +7,7 @@
   <meta name="description" content="A blog about 3D-printing as a hobby"/>
   <meta name="keywords" content="3D-printing, blog, hobby, filament, practical" />
   <meta name="author" content="Jonne Martin Krosby jan21PT" />
-  <title>3D-Printing For All | Home</title>
+  <title>3D-Printing For All | Blog</title>
   <link rel="icon" type="png" href="./media/3d-printing_favicon.png" />
   <link href="./styles/styles.css" rel="stylesheet" />
   <!-- Hotjar Tracking Code for 3D-printing for all -->
@@ -23,7 +22,7 @@
   })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
 </script>
 </head>
-<body>
+<body class="fix-footer">
   <header>
     <nav>
       <div class="nav-logo-container">
@@ -39,8 +38,8 @@
       </div>
       <div class="nav-menu-container">
         <ul>
-          <li><a class="active-page" href="index.html">Home</a></li>
-          <li><a href="blog.html">Blog</a></li>
+          <li><a href="index.html">Home</a></li>
+          <li><a class="active-page" href="blog.html">Blog</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
@@ -48,35 +47,31 @@
     </nav>
   </header>
   <main>
-    <div class="index-top-image-container"></div>
-    <div class="index-hello-container flex-col-center">
-      <h1>Welcome to 3D-printing For All</h1>
-      <div class="index-hello-text">
-        <p>
-          3D-Printing for all is a blog about sharing my hobby, 3D-printing
-          and the things that i can make with it. I have loved this hobby since i
-          bought my first 3D-printer in 2016. The things that you can make are
-          only limited by your own imagination.
-        </p>
-      </div>
-      <a href="about.html">Read more about</a>
-    </div>
     <div class="section-title">
-      <h2>Latest Posts</h2>
+      <h1>Blog</h1>
       <div class="section-title-underline"></div>
     </div>
-    <div class="blog-post-carousel flex-justify-center">
-      <button class="carousel-btn previous-btn flex-justify-center-col-center">&#8249;</button>
-          <div class="blog-post-carousel-container flex">
-            <span class="loaderslider"></span>
-          </div>
-          <button class="carousel-btn next-btn flex-justify-center-col-center">&#8250;</button>
+    <div class="blog-filter-container flex-justify-center">
+      <div class="blog-category-container">
+        <button id="category" class="filter-button">Category: &#8681;</button>
+        <ul class="category-list">
+        </ul>
+      </div>
+        <div class="blog-date-container">
+          <button id="date" class="filter-button">Sort: &#8681;</button>
+          <ul class="date-list">
+            <li tabindex="0" value="99">Newest</li>
+            <li tabindex="0" value="100">Oldest</li>
+          </ul>
+        </div>
     </div>
-    <div class="section-title popular">
-      <h2>Most popular posts</h2>
-      <div class="section-title-underline"></div>
+    <div class="blog-blogs-container flex-justify-center">
+      <span class="loaderPosts"> </span>
+      <span class="loaderPosts"> </span>
     </div>
-    <div class="index-most_popular-posts-container flex-justify-center ">
+    <div class="blog-cta-container flex-justify-center-col">
+      <button id="load-more-btn">Load more</button>
+      <button id="to-top-btn">To top</button>
     </div>
   </main>
 </body>
@@ -114,5 +109,5 @@
   </div>
 </footer>
 <script src="./js/index.js" type="module"></script>
-<script src="./js/Components/slider.js" type="module"></script>
+<script src="./js/blogs.js" type="module"></script>
 </html>

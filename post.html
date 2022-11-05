@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Cache-control" content="no-cache" />
+  <meta http-equiv="expires" content="0" />
+  <meta http-equiv="pragma" content="no-cache" />
   <meta name="description" content="A blog about 3D-printing as a hobby"/>
   <meta name="keywords" content="3D-printing, blog, hobby, filament, practical" />
   <meta name="author" content="Jonne Martin Krosby jan21PT" />
-  <title>3D-Printing For All | Home</title>
+  <title>3D-Printing For All | blog</title>
   <link rel="icon" type="png" href="./media/3d-printing_favicon.png" />
   <link href="./styles/styles.css" rel="stylesheet" />
   <!-- Hotjar Tracking Code for 3D-printing for all -->
@@ -23,12 +25,12 @@
   })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
 </script>
 </head>
-<body>
+<body class="fix-footer">
   <header>
     <nav>
       <div class="nav-logo-container">
         <a href="index.html">
-          <img src="./media/images/3d-printing orange.png" alt="3d-print for all logo" />
+          <img src="./media/images/3d-printing orange.png" alt="3d-print for all logo"/>
           <span>3D-Printing For All</span>
         </a>
       </div>
@@ -39,7 +41,7 @@
       </div>
       <div class="nav-menu-container">
         <ul>
-          <li><a class="active-page" href="index.html">Home</a></li>
+          <li><a href="index.html">Home</a></li>
           <li><a href="blog.html">Blog</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="contact.html">Contact</a></li>
@@ -48,35 +50,42 @@
     </nav>
   </header>
   <main>
-    <div class="index-top-image-container"></div>
-    <div class="index-hello-container flex-col-center">
-      <h1>Welcome to 3D-printing For All</h1>
-      <div class="index-hello-text">
-        <p>
-          3D-Printing for all is a blog about sharing my hobby, 3D-printing
-          and the things that i can make with it. I have loved this hobby since i
-          bought my first 3D-printer in 2016. The things that you can make are
-          only limited by your own imagination.
-        </p>
+    <div class="post-content-container">
+    <span class="loaderpost "></span>
+    </div>
+    <dialog class="modal">
+      <img />
+      <span class="modal-close-btn" tabindex="0">X</span>
+    </dialog>
+    <div class="post-submit-comment-container">
+      <div class="section-title">
+        <h2>Comments</h2>
+        <div class="section-title-underline"></div>
       </div>
-      <a href="about.html">Read more about</a>
-    </div>
-    <div class="section-title">
-      <h2>Latest Posts</h2>
-      <div class="section-title-underline"></div>
-    </div>
-    <div class="blog-post-carousel flex-justify-center">
-      <button class="carousel-btn previous-btn flex-justify-center-col-center">&#8249;</button>
-          <div class="blog-post-carousel-container flex">
-            <span class="loaderslider"></span>
-          </div>
-          <button class="carousel-btn next-btn flex-justify-center-col-center">&#8250;</button>
-    </div>
-    <div class="section-title popular">
-      <h2>Most popular posts</h2>
-      <div class="section-title-underline"></div>
-    </div>
-    <div class="index-most_popular-posts-container flex-justify-center ">
+      <div class="post-comments-container flex-justify-center-col-center">
+        <div class="loaderComments"></div>
+      </div>
+      <div class="section-title">
+        <h2>Leave a comment</h2>
+        <div class="section-title-underline"></div>
+      </div>
+      <form id="submitComment" class="comment-form flex-col">
+        <input name="hidden" id="hidden" hidden />
+        <label class="name">Name(required)
+          <input name="name" id="name" />
+        </label>
+        <div class="input_error" id="nameError">Please write a name, min 2 characters</div>
+        <label class="message">Comment(required)
+          <textarea name="message" id="message" placeholder="min. 10 characters"></textarea>
+        </label>
+        <div class="input_error" id="messageError">
+          Please enter atleast 10 characters
+        </div>
+        <div class="form_success"></div>
+        <div class="submit_btn">
+          <button class="submit filter-button">Submit</button>
+        </div>
+      </form>
     </div>
   </main>
 </body>
@@ -114,5 +123,5 @@
   </div>
 </footer>
 <script src="./js/index.js" type="module"></script>
-<script src="./js/Components/slider.js" type="module"></script>
+<script src="./js/post.js" type="module"></script>
 </html>
