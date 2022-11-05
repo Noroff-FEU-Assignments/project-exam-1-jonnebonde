@@ -1,0 +1,250 @@
+@import "../styles/variables.css";
+@import "../styles/header.css";
+@import "../styles/modal.css";
+@import "../styles/layout.css";
+@import "../styles/main.css";
+@import "../styles/footer.css";
+@import "../styles/mediaqueries.css";
+
+/* Font families */
+
+@font-face {
+  font-family: "opensans";
+  src: url("../fonts/OpenSans-VariableFont_wdth,wght.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "roboto";
+  src: url("../fonts/Roboto-Bold.ttf") format("truetype");
+}
+
+/* global values */
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  
+}
+
+html {
+  background: linear-gradient(90deg, var(--black), var(--less-black));
+}
+
+body {
+  transition: var(--transition-easeInOut);
+  margin: 0 auto;
+  max-width: 100%;
+  font-family: "opensans", Helvetica, Arial, Verdana;
+}
+
+a, 
+h2, 
+h1, 
+label,
+button,
+#submit-subscribe,
+.carousel-readmore,
+.modal-close-btn {
+  font-family: "roboto", Helvetica, Arial, Verdana;
+}
+
+.carousel-post-text,
+.popular-post-text {
+  font-family: "opensans", Helvetica, Arial, Verdana;
+}
+
+main {
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1 {
+  text-align: center;
+}
+
+h2{
+  font-size: var(--fs-h2);
+}
+
+p,
+.contact-text-container {
+  line-height: 1.6rem;
+}
+
+/* Loaders with credit to https://cssloaders.github.io  */
+
+.loaderpost {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: block;
+  margin: 10rem auto;
+  position: relative;
+  color: var(--orange);
+  left: -100px;
+  box-sizing: border-box;
+  animation: shadowRolling 2s linear infinite;
+}
+
+@keyframes shadowRolling {
+  0% {
+    box-shadow: 0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0);
+  }
+  12% {
+    box-shadow: 100px 0 var(--orange), 0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0);
+  }
+  25% {
+    box-shadow: 110px 0 var(--orange), 100px 0 var(--orange), 0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0);
+  }
+  36% {
+    box-shadow: 120px 0 var(--orange), 110px 0 var(--orange), 100px 0 var(--orange), 0px 0 rgba(255, 255, 255, 0);
+  }
+  50% {
+    box-shadow: 130px 0 var(--orange), 120px 0 var(--orange), 110px 0 var(--orange), 100px 0 var(--orange);
+  }
+  62% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 130px 0 var(--orange), 120px 0 var(--orange), 110px 0 var(--orange);
+  }
+  75% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0), 130px 0 var(--orange), 120px 0 var(--orange);
+  }
+  87% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0), 130px 0 var(--orange);
+  }
+  100% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0);
+  }
+}
+
+
+.loaderPosts {
+  display: block;
+  width: 100%;
+  max-width: 215px;
+  height: 220px;
+  margin: 20px;
+  border-radius: 3px;
+  background:
+    linear-gradient(0.25turn, transparent, var(--white), transparent),
+    linear-gradient(var(--orange), var(--black)),
+    linear-gradient(var(--orange), var(--black)),
+    linear-gradient(var(--orange), var(--black));
+  background-color: var(--white);
+  background-repeat: no-repeat;
+  background-size: 215px 220px, 215px 130px, 100px 15px, 150px 15px;
+  background-position: -215px 0, 0 0, 15px 150px, 15px 180px;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  to {
+    background-position: 215px 0, 0 0, 15px 150px, 15px 180px;
+  }
+}
+
+.loaderslider {
+  position: relative;
+  margin: 0 auto;
+  height: 20px;
+  width: 140px;
+  background-image:
+    linear-gradient(#FFF 20px, transparent 0),
+    linear-gradient(#FFF 20px, transparent 0),
+    linear-gradient(#FFF 20px, transparent 0),
+    linear-gradient(#FFF 20px, transparent 0);
+  background-repeat: no-repeat;
+  background-size: 20px auto;
+  background-position: 0 0, 40px 0, 80px 0, 120px 0;
+  animation: pgfill 1s linear infinite;
+}
+
+@keyframes pgfill {
+  0% {
+    background-image: linear-gradient(#FFF 20px, transparent 0), linear-gradient(#FFF 20px, transparent 0), linear-gradient(#FFF 20px, transparent 0), linear-gradient(#FFF 20px, transparent 0);
+  }
+
+  25% {
+    background-image: linear-gradient(var(--orange) 20px, transparent 0), linear-gradient(#FFF 20px, transparent 0), linear-gradient(#FFF 20px, transparent 0), linear-gradient(#FFF 20px, transparent 0);
+  }
+
+  50% {
+    background-image: linear-gradient(#FFF 20px, transparent 0), linear-gradient(var(--orange) 20px, transparent 0), linear-gradient(#FFF 20px, transparent 0), linear-gradient(#FFF 20px, transparent 0);
+  }
+
+  75% {
+    background-image: linear-gradient(#FFF 20px, transparent 0), linear-gradient(#FFF 20px, transparent 0), linear-gradient(var(--orange) 20px, transparent 0), linear-gradient(#FFF 20px, transparent 0);
+  }
+
+  100% {
+    background-image: linear-gradient(#FFF 20px, transparent 0), linear-gradient(#FFF 20px, transparent 0), linear-gradient(#FFF 20px, transparent 0), linear-gradient(var(--orange) 20px, transparent 0);
+  }
+}
+
+
+
+.loaderComments {
+  width: 80px;
+  height: 55px;
+  margin: 0 auto;
+  background: var(--white);
+  position: relative;
+  border-radius: 100%;
+}
+
+.loaderComments:before {
+  content: '';
+  position: absolute;
+  box-sizing: border-box;
+  border: 15px solid transparent;
+  border-top: 25px solid var(--white);
+  transform: rotate(45deg);
+  top: 35px;
+  left: -10px;
+}
+
+.loaderComments:after {
+  content: '';
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50% , -50%);
+  border-radius: 50%;
+  background-color: var(--orange);
+  box-shadow: 20px 0 var(--orange), -20px 0 var(--orange);
+  animation: flash 0.5s ease-out infinite alternate;
+}
+
+@keyframes flash {
+  0% {
+    background-color: rgba(255, 60, 0, 0.25);
+    box-shadow: 20px 0 rgba(255, 60, 0, 0.25), -20px 0 var(--orange);
+  }
+  50% {
+    background-color: var(--orange);
+    box-shadow: 20px 0 rgba(255, 60, 0, 0.25), -20px 0 rgba(255, 60, 0, 0.25);
+  }
+  100% {
+    background-color: rgba(255, 60, 0, 0.25);
+    box-shadow: 20px 0 var(--orange), -20px 0 rgba(255, 60, 0, 0.25);
+  }
+}
+
+.error {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  color: var(--white);
+  margin: 0 auto;
+  font-size: var(--fs-h2);
+  padding: 3rem;
+}

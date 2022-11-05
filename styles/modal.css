@@ -1,0 +1,45 @@
+.modal {
+  position: fixed;
+  top: 4%;
+  margin: 0 auto;
+  border-radius: var(--br-full);
+  border-color: var(--light-orange);
+}
+
+.modal::backdrop {
+  background: rgb(0 0 0 / 0.6);
+}
+
+.modal img {
+  display: block;
+  width: 100%;
+  animation-name: fadeIn;
+  animation-duration: 0.4s;
+  margin: 0 auto;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modal span {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: var(--black);
+  font-size: 3rem;
+  cursor: pointer;
+  padding: 5px;
+  background-color: var(--light-orange);
+  border-radius: 0 0 0 3px;
+}
+
+.modal span:is(:hover,:focus) {
+  color: var(--light-orange);
+  background-color: var(--black);
+}
