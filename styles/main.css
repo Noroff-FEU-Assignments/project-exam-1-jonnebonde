@@ -77,7 +77,6 @@
   margin: 0 auto;
   width: 80%;
   border-radius: 3px;
-  background-color: var(--white) 0%;
 }
 
 .blog-post-carousel a {
@@ -252,7 +251,6 @@
   width: 90%;
   max-width: 300px;
   height: 100%;
-  max-height: 2 00px;
   background-color: var(--white);
   border-radius: var(--br-full);
 }
