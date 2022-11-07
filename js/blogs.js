@@ -7,21 +7,6 @@ const queryString = document.location.search;
 const params = new URLSearchParams(queryString);
 const category = params.get("category");
 
-// Fetch categories from api
-
-async function fetchCategories(categories) {
-  try{
-    const categoriesData = await apiCallPost(categories)
-    buildCategoriesMenu(categoriesData)
-  }
-  catch (error) {
-    console.log(error);
-    blogContainer.innerHTML = errorMessage("Something went wrong fetching categories")
-  } 
-}
-fetchCategories(categoriesUrl)
-
-
 // API call for posts and load more //
 let pageNumber = 1;
 let sort = ""
@@ -42,6 +27,21 @@ async function fetchBlogs(posts) {
   }
 }
 fetchBlogs(postPageUrl)
+
+
+// Fetch categories from api
+
+async function fetchCategories(categories) {
+  try{
+    const categoriesData = await apiCallPost(categories)
+    buildCategoriesMenu(categoriesData)
+  }
+  catch (error) {
+    console.log(error);
+    blogContainer.innerHTML = errorMessage("Something went wrong fetching categories")
+  } 
+}
+fetchCategories(categoriesUrl)
 
 
 // sorting by category
