@@ -28,21 +28,18 @@ async function fetchBlogs(posts) {
 }
 fetchBlogs(postPageUrl);
 
-
 // Fetch categories from api
-
 async function fetchCategories(categories) {
-  try{
+  try {
     const categoriesData = await apiCallPost(categories);
     buildCategoriesMenu(categoriesData);
   }
   catch (error) {
     console.log(error);
     blogContainer.innerHTML = errorMessage("Something went wrong fetching categories");
-  } 
+  }
 };
 fetchCategories(categoriesUrl);
-
 
 // sorting by category
 function sortPosts(event) {
@@ -76,7 +73,7 @@ categoryListClose.forEach(function (categoryMenu) {
 
 categoryListClose.forEach(function (categoryMenu) {
   categoryMenu.addEventListener("keydown", (category) => {
-    if(category.keyCode === 13){
+    if (category.keyCode === 13) {
       sortPosts(category)
       categoryList.classList.remove("active");
     }
@@ -118,9 +115,9 @@ dateListClose.forEach(function (dateMenu) {
 
 dateListClose.forEach(function (dateMenu) {
   dateMenu.addEventListener("keydown", (date) => {
-    if(date.keyCode === 13){
+    if (date.keyCode === 13) {
       sortByDate(date);
-    dateList.classList.remove("active");
+      dateList.classList.remove("active");
     }
   })
 });
@@ -131,14 +128,12 @@ document.addEventListener("click", function (e) {
   }
 });
 
-
 // calls for making the html and checks page number against max number from api response header
 function loadPosts(apiData) {
   let postData = apiData[0];
   makePostHtml(postData);
   checkPage(apiData);
 }
-
 
 // load more posts by changing url page parameter
 function loadMore() {
@@ -151,7 +146,6 @@ loadBtn.addEventListener("click", () => {
   loadMore()
 });
 
-
 // checks pagenumber against max pages in api response header and disable button if reached max pages
 function checkPage(apiData) {
   let totalPages = apiData[1];
@@ -163,10 +157,8 @@ function checkPage(apiData) {
   }
 }
 
-
 // back to top btn
 // inspiration from frecodecamp.org
-
 const backToTopBtn = document.getElementById("to-top-btn");
 
 function goToTop() {

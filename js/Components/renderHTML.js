@@ -1,19 +1,17 @@
-import { carouselContainer, sliderLoader, blogsLoader, blogContainer, postContainer, postPageTitle, postCommentsContainer } from "../constants/constants.js";
+import { popularPostsContainer, carouselContainer, sliderLoader, blogsLoader, blogContainer, postContainer, postPageTitle, postCommentsContainer } from "../constants/constants.js";
 import { newDateFormat, modal } from "../utils/utilities.js";
-
 
 // making html for carousel 
 export function makePostCarouselSLiderHtml(blogPosts) {
-  
-      /* blogpost carousel slider made with inspiration from and i give credits to https://www.youtube.com/watch?v=yq4BeRtUHbk */
 
-    for(let i = 0; i < blogPosts.length; i++) {
-      if(i === 10){
-        break;
-      }
-      const date = newDateFormat(blogPosts[i].date);
+  // blogpost carousel slider made with inspiration from and i give credits to https://www.youtube.com/watch?v=yq4BeRtUHbk
+  for (let i = 0; i < blogPosts.length; i++) {
+    if (i === 10) {
+      break;
+    }
+    const date = newDateFormat(blogPosts[i].date);
 
-      carouselContainer.innerHTML +=  `
+    carouselContainer.innerHTML += `
       <div class="carousel-post">
           <a  class="flex-col" href="post.html?post=${blogPosts[i].id}">
               <div class="carousel-post-title">
@@ -31,48 +29,46 @@ export function makePostCarouselSLiderHtml(blogPosts) {
           </a>
       </div>
       `;
-      
-      sliderLoader.style.display = "none";
-    }
 
-    let seeAllPostsContainer = document.createElement("div");
-    seeAllPostsContainer.classList.add("carousel-see_all_posts-container");
-    carouselContainer.appendChild(seeAllPostsContainer);
+    sliderLoader.style.display = "none";
+  }
 
-    const seeAllPosts = document.querySelector(".carousel-see_all_posts-container");
+  let seeAllPostsContainer = document.createElement("div");
+  seeAllPostsContainer.classList.add("carousel-see_all_posts-container");
+  carouselContainer.appendChild(seeAllPostsContainer);
 
-    let seeAllPostsButton = document.createElement("a");
-    seeAllPostsButton.setAttribute("href", "blog.html");
-    seeAllPostsButton.classList.add("flex-col-center"); 
-    seeAllPostsButton.innerHTML = "See all Posts";
-    seeAllPosts.appendChild(seeAllPostsButton);
+  const seeAllPosts = document.querySelector(".carousel-see_all_posts-container");
+
+  let seeAllPostsButton = document.createElement("a");
+  seeAllPostsButton.setAttribute("href", "blog.html");
+  seeAllPostsButton.classList.add("flex-col-center");
+  seeAllPostsButton.innerHTML = "See all Posts";
+  seeAllPosts.appendChild(seeAllPostsButton);
 };
 
 // makes html for popular posts
-const popularPostsContainer = document.querySelector(".index-most_popular-posts-container"); 
-
 export function makePopularPostsHtml(popularPosts) {
-      
-      const filter = popularPosts.filter(function (x) {
-          if(x._embedded.replies !== undefined) {
-            return true;
-        }
-      });
 
-      const mostComments = filter.sort(function(x, y) {
-        return y._embedded.replies[0].length - x._embedded.replies[0].length;
-      });
+  const filter = popularPosts.filter(function (x) {
+    if (x._embedded.replies !== undefined) {
+      return true;
+    }
+  });
 
-      for(let i = 0; i < mostComments.length; i++) {
-      
-        let popular = mostComments[i];
-        if(i === 4) {
-          break;
-        };
+  const mostComments = filter.sort(function (x, y) {
+    return y._embedded.replies[0].length - x._embedded.replies[0].length;
+  });
 
-        const date = newDateFormat(popular.date);
+  for (let i = 0; i < mostComments.length; i++) {
 
-        popularPostsContainer.innerHTML += `
+    let popular = mostComments[i];
+    if (i === 4) {
+      break;
+    };
+
+    const date = newDateFormat(popular.date);
+
+    popularPostsContainer.innerHTML += `
         <div class="popular-posts">
             <a class="flex-col" href="post.html?post=${popular.id}">
                 <div class="popular-post-title">
@@ -89,7 +85,7 @@ export function makePopularPostsHtml(popularPosts) {
             </a>
         </div>
         `;
-      } 
+  }
 }
 
 // makes html for posts
@@ -119,15 +115,11 @@ export function makePostHtml(postData) {
                     <a class="blog-post-cta" href="post.html?post=${posts.id}">Read more</a>
             </div>`;
   })
-
 }
-
 
 // make html for single post
 export function singlePostHtml(apiPost) {
-
   const date = newDateFormat(apiPost[0].date);
-
   postPageTitle.innerHTML = `3D-Printing For All | ${apiPost[0].title.rendered}`;
 
   postContainer.innerHTML = `
@@ -139,27 +131,25 @@ export function singlePostHtml(apiPost) {
         <div class="post-content-rendered flex-col-center">${apiPost[0].content.rendered}</div>
       </div>`;
 
-      const image = document.querySelectorAll("img");
+  const image = document.querySelectorAll("img");
 
-      image.forEach(function (x) {
-      
-        x.setAttribute("tabindex", 0)
-        x.onclick = function (e) {
-          modal(e);
-        }
-      });
-      
-      image.forEach(function (k) {
-        k.addEventListener("keydown", (k) => {
-          if(k.keyCode === 13){
-            modal(k)
-          }
-        });
-      });
+  image.forEach(function (x) {
+    x.setAttribute("tabindex", 0)
+    x.onclick = function (e) {
+      modal(e);
+    }
+  });
+
+  image.forEach(function (k) {
+    k.addEventListener("keydown", (k) => {
+      if (k.keyCode === 13) {
+        modal(k)
+      }
+    });
+  });
 }
 
 export function noCommentsHtml() {
-
   postCommentsContainer.innerHTML = `
   <div class="post-comment-content">
     <span>No comments here yet, wanna be the first?</span>
@@ -167,7 +157,6 @@ export function noCommentsHtml() {
 }
 
 export function commentsHtml(comments) {
-
   postCommentsContainer.innerHTML = "";
   comments.forEach(function (c) {
 
@@ -190,9 +179,7 @@ export function commentsHtml(comments) {
   })
 }
 
-
 // Create category list dynamically from api result
-
 export function buildCategoriesMenu(data) {
   const categories = document.querySelector(".category-list");
 
@@ -205,12 +192,12 @@ export function buildCategoriesMenu(data) {
   categories.appendChild(categoryList);
 
   const filterCategories = data.filter(function (x) {
-    if(x.id !== 1) {
+    if (x.id !== 1) {
       return true;
-  }
-});
+    }
+  });
 
-  for(let i = 0; i < filterCategories.length; i++) {
+  for (let i = 0; i < filterCategories.length; i++) {
     const categoryDynamicList = document.createElement("li");
     categoryDynamicList.setAttribute("value", filterCategories[i].id);
     categoryDynamicList.setAttribute("tabindex", 0);

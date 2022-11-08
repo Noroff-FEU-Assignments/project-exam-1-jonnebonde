@@ -11,12 +11,11 @@ const commentsDataUrl = commentsUrl + "?post=" + postId;
 const singlePostUrl = url + postUrl + postId + "&_embed";
 
 // add loader and remove loader
-
 async function fetchPost(post) {
   try {
     const apiPost = await apiCallPost(post);
     singlePostHtml(apiPost);
-  } catch(error) {
+  } catch (error) {
     postContainer.innerHTML = errorMessage("Something went wrong getting this post!!");
   }
 }
@@ -34,7 +33,7 @@ async function fetchComments() {
       commentsHtml(postComments);
     }
 
-  } catch(error) {
+  } catch (error) {
     postCommentsContainer.innerHTML = errorMessage("Something went wrong fetching the comments");
   }
 }
@@ -42,10 +41,8 @@ fetchComments();
 
 
 // postcomment form validation
-
 const formSuccess = document.querySelector(".form_success");
 const form = document.getElementById("submitComment");
-
 let successMessage = false;
 
 function validateCommentsInputs(event) {
@@ -63,7 +60,6 @@ function validateCommentsInputs(event) {
     nameError.style.visibility = "visible";
     nameValid.style.color = "black";
   }
-
   if (message) {
     messageError.style.visibility = "hidden";
     messageValid.style.color = "#EEEEEE";
@@ -72,16 +68,13 @@ function validateCommentsInputs(event) {
     messageError.style.visibility = "visible";
     messageValid.style.color = "black";
   }
-
   if (hidden) {
     return;
   }
-
   if (name && message) {
     successMessage = true;
     submitComment();
   }
-
 }
 
 form.addEventListener("submit", validateCommentsInputs);
@@ -99,7 +92,6 @@ async function submitComment() {
   // and https://www.tetchi.ca/how-to-post-comments-using-the-wordpress-rest-api
   // and https://www.youtube.com/watch?v=e_thybKPKHc for the authorization;
   // and https://code-boxx.com/javascript-fetch-auth/
-
   fetch(commentsUrl, {
     method: 'post',
     headers: {
@@ -119,13 +111,13 @@ async function submitComment() {
 }
 
 function formSubmitSuccesfull() {
-    formSuccess.style.display = "block";
-    formSuccess.innerHTML = `<div>Thank you ${nameInput.value} for youre comment</div>`;
-    resetPage();
+  formSuccess.style.display = "block";
+  formSuccess.innerHTML = `<div>Thank you ${nameInput.value} for youre comment</div>`;
+  resetPage();
 }
 
 function formSubmitError() {
-    formSuccess.style.display = "block";
-    formSuccess.innerHTML = `<div>Oooopps!!! ${nameInput.value}, something went wrong posting your comment</div>`;
-    resetPage();
+  formSuccess.style.display = "block";
+  formSuccess.innerHTML = `<div>Oooopps!!! ${nameInput.value}, something went wrong posting your comment</div>`;
+  resetPage();
 }

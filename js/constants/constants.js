@@ -1,3 +1,4 @@
+// urls
 export const url = "https://www.jonnekrosby.site/project-exam1/wp-json/wp/v2/";
 export const postsEmbed = "posts?_embed";
 export const postUrl = "posts?include=";
@@ -6,7 +7,6 @@ export const contactFormUrl = "https://jonnekrosby.site/project-exam1/wp-json/co
 export const categoriesUrl = url + "categories?_embed"
 
 // containers for HTML and loaders
-
 export const carouselContainer = document.querySelector(".blog-post-carousel-container");
 export const sliderLoader = document.querySelector(".loaderslider");
 export const blogContainer = document.querySelector(".blog-blogs-container");
@@ -15,10 +15,9 @@ export const blogsLoader = document.querySelectorAll(".loaderPosts");
 export const postContainer = document.querySelector(".post-content-container");
 export const postCommentsContainer = document.querySelector(".post-comments-container");
 export const postPageTitle = document.querySelector("title");
-
+export const popularPostsContainer = document.querySelector(".index-most_popular-posts-container");
 
 // Container for sorting category, date and loadmore button
-
 export const categoryToggle = document.getElementById("category");
 export const categoryList = document.querySelector(".category-list");
 export const categoryContainer = document.querySelector(".blog-category-container");
@@ -30,11 +29,7 @@ export const dateContainer = document.querySelector(".blog-date-container");
 
 export const loadBtn = document.getElementById("load-more-btn");
 
-
-
 // Form validation
-
-
 export const hiddenInput = document.getElementById("hidden");
 
 export const nameValid = document.querySelector(".name");

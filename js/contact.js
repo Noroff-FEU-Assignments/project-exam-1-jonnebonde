@@ -3,7 +3,6 @@ import { contactFormUrl, hiddenInput, nameValid, nameError, nameInput, subjectEr
 
 const formSuccess = document.querySelector(".contact-form-success");
 const form = document.getElementById("contactForm");
-
 let successMessage = false;
 
 function validateInputs(event) {
@@ -15,7 +14,6 @@ function validateInputs(event) {
   const message = checkLength(messageInput.value, 24);
   const hidden = checkLength(hiddenInput.value, 1);
 
-
   if (name) {
     nameError.style.visibility = "hidden";
     nameValid.style.color = "#EEEEEE";
@@ -23,7 +21,6 @@ function validateInputs(event) {
   } else {
     nameError.style.visibility = "visible";
   }
-
   if (subject) {
     subjectError.style.visibility = "hidden";
     subjectValid.style.color = "#EEEEEE";
@@ -31,7 +28,6 @@ function validateInputs(event) {
   } else {
     subjectError.style.visibility = "visible";
   }
-
   if (email) {
     emailError.style.visibility = "hidden";
     emailValid.style.color = "#EEEEEE";
@@ -39,7 +35,6 @@ function validateInputs(event) {
   } else {
     emailError.style.visibility = "visible";
   }
-
   if (message) {
     messageError.style.visibility = "hidden";
     messageValid.style.color = "#EEEEEE";
@@ -47,21 +42,17 @@ function validateInputs(event) {
   } else {
     messageError.style.visibility = "visible";
   }
-
   if (hidden) {
     return;
   }
-
   if (name && subject && email && message) {
     successMessage = true;
-
 
     let contactData = new FormData();
     contactData.append("your-name", nameInput.value);
     contactData.append("your-email", emailInput.value);
     contactData.append("your-subject", subjectInput.value);
     contactData.append("your-message", messageInput.value);
-
 
     fetch(contactFormUrl, {
       method: "post",
@@ -81,18 +72,18 @@ function validateInputs(event) {
 form.addEventListener("submit", validateInputs);
 
 function formSubmitSuccesfull() {
-    formSuccess.style.display = "block";
-    formSuccess.innerHTML = `
+  formSuccess.style.display = "block";
+  formSuccess.innerHTML = `
       <div class="flex-col">
         <span>Thank u ${nameInput.value}</span>
         <span>We will contact u within 24 hours</span>
         <span>on ${emailInput.value}</span>
       </div>`;
-    resetPage();
+  resetPage();
 }
 
 function formSubmitError() {
-    formSuccess.style.display = "block";
-    formSuccess.innerHTML = `<div>Sorry, But something went wrong sending youre form</div>`;
-    resetPage();
+  formSuccess.style.display = "block";
+  formSuccess.innerHTML = `<div>Sorry, But something went wrong sending youre form</div>`;
+  resetPage();
 }

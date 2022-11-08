@@ -8,7 +8,6 @@ const sliderPostsUrl = url + postsEmbed + "&per_page=10";
 const popularPostsUrl = url + postsEmbed + "&per_page=100";
 
 async function fetchApi() {
-
   try {
     const apiData = await apiCallPost(sliderPostsUrl);
     makePostCarouselSLiderHtml(apiData);
@@ -26,7 +25,7 @@ async function fetchApi() {
     });
 
     const popularPosts = await apiCallPost(popularPostsUrl);
-    makePopularPostsHtml(popularPosts);  
+    makePopularPostsHtml(popularPosts);
 
   }
   catch (error) {
@@ -34,5 +33,4 @@ async function fetchApi() {
     carouselContainer.innerHTML = errorMessage("Sorry, Something went wrong getting posts");
   }
 }
-
 fetchApi();

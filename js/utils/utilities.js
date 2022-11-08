@@ -1,8 +1,6 @@
 import { carouselContainer } from "../constants/constants.js";
 
-
 // Apicall no response header info
-
 export async function apiCallPost(url) {
   const response = await fetch(url);
   const result = await response.json();
@@ -10,7 +8,6 @@ export async function apiCallPost(url) {
 }
 
 // Apicall with response header info
-
 export async function apiCall(url) {
   const response = await fetch(url);
   const result = await response.json();
@@ -19,7 +16,6 @@ export async function apiCall(url) {
 }
 
 // regex for checking email
-
 export function validateEmail(email) {
   const regEx = /\S+@\S+\.\S+/;
   const patternMatches = regEx.test(email);
@@ -27,7 +23,6 @@ export function validateEmail(email) {
 }
 
 // Checking length of input against required length
-
 export function checkLength(value, len) {
   if (value.trim().length > len) {
     return true;
@@ -35,13 +30,12 @@ export function checkLength(value, len) {
 }
 
 // Carousel function  
-
 export function slideCarousel(carouselBtn, slider) {
 
   const blogCarouselIndex = parseInt(getComputedStyle(carouselContainer).getPropertyValue("--blog-carousel-index"));
   const blogsPerScreen = parseInt(getComputedStyle(carouselContainer).getPropertyValue("--blogs-per-screen"));
   const blogCount = slider.length + 1;
-  
+
   if (carouselBtn.classList.contains("previous-btn")) {
     if (blogCarouselIndex - 1 < 0) {
       carouselContainer.style.setProperty("--blog-carousel-index" - 1);
@@ -60,7 +54,6 @@ export function slideCarousel(carouselBtn, slider) {
 }
 
 // Refresh page
-
 export function resetPage() {
   setTimeout(function () {
     window.location.reload(true);
@@ -68,7 +61,6 @@ export function resetPage() {
 }
 
 // Change date format
-
 export function newDateFormat(e) {
   let date = new Date(e).toLocaleDateString("utc", {
     year: "numeric",
@@ -79,18 +71,18 @@ export function newDateFormat(e) {
 }
 
 // Modal function
-
 export function modal(event) {
 
   const modal = document.querySelector(".modal");
   const modalImage = document.querySelector(".modal img");
-      const elem = event.target;
-      if (elem.src) {
-        modalImage.src = elem.src;
-        modalImage.alt = elem.alt;
-        modal.showModal();
-      }
-    
+  const elem = event.target;
+
+  if (elem.src) {
+    modalImage.src = elem.src;
+    modalImage.alt = elem.alt;
+    modal.showModal();
+  }
+
   document.addEventListener("click", (e) => {
     if (e.target.matches(".modal") || e.target.matches(".modal-close-btn")) {
       modal.close();
@@ -102,5 +94,4 @@ export function modal(event) {
       modal.close();
     }
   });
-
 }
