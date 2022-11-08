@@ -312,6 +312,17 @@
   box-shadow: 3px 3px var(--orange);
 }
 
+.blog-category-container,
+.blog-date-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.blog-category-container span,
+.blog-date-container{
+  color: white;
+}
+
 .category-list,
 .date-list {
   display: none;

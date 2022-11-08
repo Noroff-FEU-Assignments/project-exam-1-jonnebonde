@@ -1,20 +1,16 @@
 import { apiCall, apiCallPost } from "../js/utils/utilities.js";
-import { url, categoriesUrl, postsEmbed, blogContainer, categoryToggle, categoryList, categoryContainer, dateToggle, dateListClose, dateContainer, dateList, loadBtn } from "../js/constants/constants.js";
+import { url, categoriesUrl, postsEmbed, blogContainer, categoryToggle, categoryList, categoryContainer, dateToggle, dateListClose, dateContainer, dateList, loadBtn} from "../js/constants/constants.js";
 import { makePostHtml, buildCategoriesMenu } from "../js/Components/renderHTML.js";
 import { errorMessage } from "../js/Components/displayMessage.js";
 
-const queryString = document.location.search;
-const params = new URLSearchParams(queryString);
-const category = params.get("category");
+const sortedByTitle = document.querySelector(".blog-category-container span")
+
+console.log(sortedByTitle.innerText)
 
 // API call for posts and load more //
 let pageNumber = 1;
 let sort = "";
 let postPageUrl = url + postsEmbed + "&page=" + pageNumber + sort;
-
-if (category !== null) {
-  postPageUrl = url + postsEmbed + "&categories=" + category + "&page" + pageNumber;
-}
 
 async function fetchBlogs(posts) {
   try {
@@ -44,17 +40,22 @@ fetchCategories(categoriesUrl);
 // sorting by category
 function sortPosts(event) {
   let categoryId = event.target.value;
+  let categoryText = event.target.innerText
   pageNumber = 1;
+  sortedByTitle.innerText = "Category: "
 
   if (categoryId <= 0) {
     sort = "";
     postPageUrl = url + postsEmbed + "&page=" + pageNumber + sort;
     blogContainer.innerHTML = "";
+    sortedByTitle.innerText = "Category: All"
     fetchBlogs(postPageUrl);
   } else {
     sort = "&categories=" + categoryId;
     postPageUrl = url + postsEmbed + "&page=" + pageNumber + sort;
     blogContainer.innerHTML = "";
+    
+    sortedByTitle.innerText = sortedByTitle.innerText + " " + categoryText;
     fetchBlogs(postPageUrl);
   }
 }
