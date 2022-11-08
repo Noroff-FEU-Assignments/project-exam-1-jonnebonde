@@ -1,4 +1,4 @@
-import { resetPage, checkLength, validateEmail } from "../js/Components/utilities.js";
+import { resetPage, checkLength, validateEmail } from "../js/utils/utilities.js";
 import { contactFormUrl, hiddenInput, nameValid, nameError, nameInput, subjectError, subjectInput, subjectValid, emailError, emailInput, emailValid, messageError, messageInput, messageValid } from "../js/constants/constants.js";
 
 const formSuccess = document.querySelector(".contact-form-success");
@@ -49,7 +49,6 @@ function validateInputs(event) {
   }
 
   if (hidden) {
-    console.log("spambot alert")
     return;
   }
 
@@ -93,8 +92,7 @@ function formSubmitSuccesfull() {
 }
 
 function formSubmitError() {
-    formSuccess.style.display = "block"
+    formSuccess.style.display = "block";
     formSuccess.innerHTML = `<div>Sorry, But something went wrong sending youre form</div>`;
-    resetPage()
-
-};
+    resetPage();
+}

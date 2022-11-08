@@ -1,4 +1,4 @@
-import { apiCallPost, checkLength, resetPage } from "../js/Components/utilities.js";
+import { apiCallPost, checkLength, resetPage } from "../js/utils/utilities.js";
 import { postCommentsContainer, postContainer, url, postUrl, commentsUrl, nameValid, nameInput, nameError, messageError, messageInput, messageValid, hiddenInput } from "../js/constants/constants.js";
 import { singlePostHtml, noCommentsHtml, commentsHtml } from "../js/Components/renderHTML.js";
 import { errorMessage } from "../js/Components/displayMessage.js";
@@ -31,7 +31,7 @@ async function fetchComments() {
     if (postComments.length === 0) {
       noCommentsHtml()
     } else {
-      commentsHtml(postComments)
+      commentsHtml(postComments);
     }
 
   } catch(error) {
@@ -53,12 +53,12 @@ function validateCommentsInputs(event) {
 
   const name = checkLength(nameInput.value, 1);
   const message = checkLength(messageInput.value, 4);
-  const hidden = checkLength(hiddenInput.value, 1)
+  const hidden = checkLength(hiddenInput.value, 1);
 
   if (name) {
     nameError.style.visibility = "hidden";
     nameValid.style.color = "#EEEEEE";
-    nameValid.style.backgroundColor = "#00540A"
+    nameValid.style.backgroundColor = "#00540A";
   } else {
     nameError.style.visibility = "visible";
     nameValid.style.color = "black";
@@ -67,7 +67,7 @@ function validateCommentsInputs(event) {
   if (message) {
     messageError.style.visibility = "hidden";
     messageValid.style.color = "#EEEEEE";
-    messageValid.style.backgroundColor = "#00540A"
+    messageValid.style.backgroundColor = "#00540A";
   } else {
     messageError.style.visibility = "visible";
     messageValid.style.color = "black";
@@ -116,16 +116,16 @@ async function submitComment() {
       }
     })
     .catch(error => console.error("error", error));
-};
+}
 
 function formSubmitSuccesfull() {
-    formSuccess.style.display = "block"
+    formSuccess.style.display = "block";
     formSuccess.innerHTML = `<div>Thank you ${nameInput.value} for youre comment</div>`;
-    resetPage()  
-};
+    resetPage();
+}
 
 function formSubmitError() {
-    formSuccess.style.display = "block"
+    formSuccess.style.display = "block";
     formSuccess.innerHTML = `<div>Oooopps!!! ${nameInput.value}, something went wrong posting your comment</div>`;
-    resetPage()
-};
+    resetPage();
+}

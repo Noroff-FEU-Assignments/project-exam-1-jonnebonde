@@ -1,5 +1,5 @@
 import { carouselContainer, sliderLoader, blogsLoader, blogContainer, postContainer, postPageTitle, postCommentsContainer } from "../constants/constants.js";
-import { newDateFormat, modal } from "../Components/utilities.js";
+import { newDateFormat, modal } from "../utils/utilities.js";
 
 
 // making html for carousel 
@@ -33,7 +33,6 @@ export function makePostCarouselSLiderHtml(blogPosts) {
       `;
       
       sliderLoader.style.display = "none";
-        
     }
 
     let seeAllPostsContainer = document.createElement("div");
@@ -47,8 +46,7 @@ export function makePostCarouselSLiderHtml(blogPosts) {
     seeAllPostsButton.classList.add("flex-col-center"); 
     seeAllPostsButton.innerHTML = "See all Posts";
     seeAllPosts.appendChild(seeAllPostsButton);
-  ;
-}
+};
 
 // makes html for popular posts
 const popularPostsContainer = document.querySelector(".index-most_popular-posts-container"); 
@@ -57,42 +55,42 @@ export function makePopularPostsHtml(popularPosts) {
       
       const filter = popularPosts.filter(function (x) {
           if(x._embedded.replies !== undefined) {
-            return true
+            return true;
         }
       });
 
       const mostComments = filter.sort(function(x, y) {
         return y._embedded.replies[0].length - x._embedded.replies[0].length;
-      })
+      });
 
       for(let i = 0; i < mostComments.length; i++) {
       
         let popular = mostComments[i];
         if(i === 4) {
           break;
-        }
+        };
 
         const date = newDateFormat(popular.date);
 
-      popularPostsContainer.innerHTML += `
-      <div class="popular-posts">
-          <a class="flex-col" href="post.html?post=${popular.id}">
-              <div class="popular-post-title">
-                  <h2>${popular.title.rendered}</h2>
-              </div>
-                <div class="popular-img-container flex-justify-center-col" style="background-image: url(${popular._embedded["wp:featuredmedia"][0].source_url})" aria-label="${popular._embedded["wp:featuredmedia"][0].alt_text}">
-                    <span id="popular-readmore">Read More</span>
+        popularPostsContainer.innerHTML += `
+        <div class="popular-posts">
+            <a class="flex-col" href="post.html?post=${popular.id}">
+                <div class="popular-post-title">
+                    <h2>${popular.title.rendered}</h2>
                 </div>
-              <div class="popular-post-text flex-col">
-                  <span><strong>Author:</strong> ${popular._embedded.author[0].name}</span>
-                  <span><strong>Date:</strong> ${date}</span>
-                  <span><strong>Category:</strong> ${popular._embedded["wp:term"][0][0].name}</span>
-              </div>
-          </a>
-      </div>
-      `
+                  <div class="popular-img-container flex-justify-center-col" style="background-image: url(${popular._embedded["wp:featuredmedia"][0].source_url})" aria-label="${popular._embedded["wp:featuredmedia"][0].alt_text}">
+                      <span id="popular-readmore">Read More</span>
+                  </div>
+                <div class="popular-post-text flex-col">
+                    <span><strong>Author:</strong> ${popular._embedded.author[0].name}</span>
+                    <span><strong>Date:</strong> ${date}</span>
+                    <span><strong>Category:</strong> ${popular._embedded["wp:term"][0][0].name}</span>
+                </div>
+            </a>
+        </div>
+        `;
       } 
-} 
+}
 
 // makes html for posts
 export function makePostHtml(postData) {
@@ -119,7 +117,7 @@ export function makePostHtml(postData) {
                     </div>
                 </div>
                     <a class="blog-post-cta" href="post.html?post=${posts.id}">Read more</a>
-            </div>`
+            </div>`;
   })
 
 }
@@ -130,7 +128,7 @@ export function singlePostHtml(apiPost) {
 
   const date = newDateFormat(apiPost[0].date);
 
-  postPageTitle.innerHTML = `3D-Printing For All | ${apiPost[0].title.rendered}`
+  postPageTitle.innerHTML = `3D-Printing For All | ${apiPost[0].title.rendered}`;
 
   postContainer.innerHTML = `
       <div class="post-content-cointainer flex-col-center">
@@ -147,7 +145,7 @@ export function singlePostHtml(apiPost) {
       
         x.setAttribute("tabindex", 0)
         x.onclick = function (e) {
-          modal(e)
+          modal(e);
         }
       });
       
@@ -156,8 +154,8 @@ export function singlePostHtml(apiPost) {
           if(k.keyCode === 13){
             modal(k)
           }
-        })
-      })
+        });
+      });
 }
 
 export function noCommentsHtml() {
@@ -165,11 +163,10 @@ export function noCommentsHtml() {
   postCommentsContainer.innerHTML = `
   <div class="post-comment-content">
     <span>No comments here yet, wanna be the first?</span>
-  </div>`
+  </div>`;
 }
 
 export function commentsHtml(comments) {
-  console.log(comments)
 
   postCommentsContainer.innerHTML = "";
   comments.forEach(function (c) {
@@ -189,7 +186,7 @@ export function commentsHtml(comments) {
           <span id="comment-date">${date}</span>
         </div>
         <div class="post-comment-rendered">${c.content.rendered}</div>
-      </div>`
+      </div>`;
   })
 }
 
@@ -203,22 +200,21 @@ export function buildCategoriesMenu(data) {
 
   let categoryList = document.createElement("li");
   categoryList.setAttribute("value", "0");
-  categoryList.setAttribute("tabindex", 0)
-  categoryList.appendChild(document.createTextNode("All"))
-  categories.appendChild(categoryList)
+  categoryList.setAttribute("tabindex", 0);
+  categoryList.appendChild(document.createTextNode("All"));
+  categories.appendChild(categoryList);
 
   const filterCategories = data.filter(function (x) {
     if(x.id !== 1) {
-      return true
+      return true;
   }
 });
 
   for(let i = 0; i < filterCategories.length; i++) {
-
     const categoryDynamicList = document.createElement("li");
     categoryDynamicList.setAttribute("value", filterCategories[i].id);
-    categoryDynamicList.setAttribute("tabindex", 0)
-    categoryDynamicList.appendChild(document.createTextNode(filterCategories[i].name))
-    categories.appendChild(categoryDynamicList)
+    categoryDynamicList.setAttribute("tabindex", 0);
+    categoryDynamicList.appendChild(document.createTextNode(filterCategories[i].name));
+    categories.appendChild(categoryDynamicList);
   }
 }

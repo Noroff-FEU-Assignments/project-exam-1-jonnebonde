@@ -1,4 +1,4 @@
-import { validateEmail } from "../js/Components/utilities.js";
+import { validateEmail } from "../js/utils/utilities.js";
 
 // hamburger menu
 

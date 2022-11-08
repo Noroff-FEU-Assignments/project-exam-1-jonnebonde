@@ -645,7 +645,7 @@
 }
 
 .about-image-container img {
-  height: clamp(300px, 100%, 500.83px);
+  height: clamp(300px, 100%);
   width: 100%;
   margin: 0 auto;
 }

@@ -1,5 +1,5 @@
-import { apiCall, apiCallPost } from "../js/Components/utilities.js"
-import { url, categoriesUrl, postsEmbed, blogContainer, categoryToggle, categoryList, categoryContainer, dateToggle, dateListClose, dateContainer, dateList, loadBtn } from "../js/constants/constants.js"
+import { apiCall, apiCallPost } from "../js/utils/utilities.js";
+import { url, categoriesUrl, postsEmbed, blogContainer, categoryToggle, categoryList, categoryContainer, dateToggle, dateListClose, dateContainer, dateList, loadBtn } from "../js/constants/constants.js";
 import { makePostHtml, buildCategoriesMenu } from "../js/Components/renderHTML.js";
 import { errorMessage } from "../js/Components/displayMessage.js";
 
@@ -9,7 +9,7 @@ const category = params.get("category");
 
 // API call for posts and load more //
 let pageNumber = 1;
-let sort = ""
+let sort = "";
 let postPageUrl = url + postsEmbed + "&page=" + pageNumber + sort;
 
 if (category !== null) {
@@ -19,29 +19,29 @@ if (category !== null) {
 async function fetchBlogs(posts) {
   try {
     const apiData = await apiCall(posts);
-    loadPosts(apiData)
+    loadPosts(apiData);
   }
   catch (error) {
     console.log(error);
-    blogContainer.innerHTML = errorMessage("Something went wrong fetching posts")
+    blogContainer.innerHTML = errorMessage("Something went wrong fetching posts");
   }
 }
-fetchBlogs(postPageUrl)
+fetchBlogs(postPageUrl);
 
 
 // Fetch categories from api
 
 async function fetchCategories(categories) {
   try{
-    const categoriesData = await apiCallPost(categories)
-    buildCategoriesMenu(categoriesData)
+    const categoriesData = await apiCallPost(categories);
+    buildCategoriesMenu(categoriesData);
   }
   catch (error) {
     console.log(error);
-    blogContainer.innerHTML = errorMessage("Something went wrong fetching categories")
+    blogContainer.innerHTML = errorMessage("Something went wrong fetching categories");
   } 
-}
-fetchCategories(categoriesUrl)
+};
+fetchCategories(categoriesUrl);
 
 
 // sorting by category
@@ -50,27 +50,27 @@ function sortPosts(event) {
   pageNumber = 1;
 
   if (categoryId <= 0) {
-    sort = ""
+    sort = "";
     postPageUrl = url + postsEmbed + "&page=" + pageNumber + sort;
     blogContainer.innerHTML = "";
-    fetchBlogs(postPageUrl)
+    fetchBlogs(postPageUrl);
   } else {
     sort = "&categories=" + categoryId;
     postPageUrl = url + postsEmbed + "&page=" + pageNumber + sort;
     blogContainer.innerHTML = "";
     fetchBlogs(postPageUrl);
-  };
-};
+  }
+}
 
 categoryToggle.addEventListener("click", () => {
-  categoryList.classList.toggle("active")
+  categoryList.classList.toggle("active");
 });
 
 const categoryListClose = document.querySelectorAll(".category-list");
 categoryListClose.forEach(function (categoryMenu) {
   categoryMenu.onclick = function (category) {
     sortPosts(category)
-    categoryList.classList.remove("active")
+    categoryList.classList.remove("active");
   }
 });
 
@@ -78,7 +78,7 @@ categoryListClose.forEach(function (categoryMenu) {
   categoryMenu.addEventListener("keydown", (category) => {
     if(category.keyCode === 13){
       sortPosts(category)
-      categoryList.classList.remove("active")
+      categoryList.classList.remove("active");
     }
   })
 });
@@ -97,37 +97,37 @@ function sortByDate(event) {
   if (sortByDate === 99) {
     postPageUrl = url + postsEmbed + sort + "&order=desc&page=" + pageNumber;
     blogContainer.innerHTML = "";
-    fetchBlogs(postPageUrl)
+    fetchBlogs(postPageUrl);
   } else {
     postPageUrl = url + postsEmbed + sort + "&order=asc&page=" + pageNumber;
     blogContainer.innerHTML = "";
-    fetchBlogs(postPageUrl)
+    fetchBlogs(postPageUrl);
   }
 }
 
 dateToggle.addEventListener("click", () => {
-  dateList.classList.toggle("active")
+  dateList.classList.toggle("active");
 });
 
 dateListClose.forEach(function (dateMenu) {
   dateMenu.onclick = function (date) {
-    sortByDate(date)
-    dateList.classList.remove("active")
+    sortByDate(date);
+    dateList.classList.remove("active");
   }
 });
 
 dateListClose.forEach(function (dateMenu) {
   dateMenu.addEventListener("keydown", (date) => {
     if(date.keyCode === 13){
-      sortByDate(date)
-    dateList.classList.remove("active")
+      sortByDate(date);
+    dateList.classList.remove("active");
     }
   })
 });
 
 document.addEventListener("click", function (e) {
   if (!dateContainer.contains(e.target)) {
-    dateList.classList.remove("active")
+    dateList.classList.remove("active");
   }
 });
 
@@ -137,15 +137,15 @@ function loadPosts(apiData) {
   let postData = apiData[0];
   makePostHtml(postData);
   checkPage(apiData);
-};
+}
 
 
 // load more posts by changing url page parameter
 function loadMore() {
-  pageNumber++
+  pageNumber++;
   postPageUrl = url + postsEmbed + "&page=" + pageNumber + sort;
   fetchBlogs(postPageUrl);
-};
+}
 
 loadBtn.addEventListener("click", () => {
   loadMore()
@@ -161,7 +161,7 @@ function checkPage(apiData) {
   else {
     loadBtn.style.display = "none";
   }
-};
+}
 
 
 // back to top btn
@@ -175,4 +175,4 @@ function goToTop() {
   });
 }
 
-backToTopBtn.addEventListener("click", goToTop)
+backToTopBtn.addEventListener("click", goToTop);

@@ -46,7 +46,7 @@ export function slideCarousel(carouselBtn, slider) {
     if (blogCarouselIndex - 1 < 0) {
       carouselContainer.style.setProperty("--blog-carousel-index" - 1);
     } else {
-      carouselContainer.style.setProperty("--blog-carousel-index", blogCarouselIndex - 1)
+      carouselContainer.style.setProperty("--blog-carousel-index", blogCarouselIndex - 1);
     }
   }
 
@@ -54,7 +54,7 @@ export function slideCarousel(carouselBtn, slider) {
     if (blogCarouselIndex + 1 >= blogCount / blogsPerScreen) {
       carouselContainer.style.setProperty("--blog-carousel-index", 0);
     } else {
-      carouselContainer.style.setProperty("--blog-carousel-index", blogCarouselIndex + 1)
+      carouselContainer.style.setProperty("--blog-carousel-index", blogCarouselIndex + 1);
     }
   }
 }
@@ -63,8 +63,8 @@ export function slideCarousel(carouselBtn, slider) {
 
 export function resetPage() {
   setTimeout(function () {
-    window.location.reload(true)
-  }, 3000)
+    window.location.reload(true);
+  }, 3000);
 }
 
 // Change date format
@@ -82,25 +82,25 @@ export function newDateFormat(e) {
 
 export function modal(event) {
 
-  const modal = document.querySelector(".modal")
+  const modal = document.querySelector(".modal");
   const modalImage = document.querySelector(".modal img");
       const elem = event.target;
       if (elem.src) {
         modalImage.src = elem.src;
         modalImage.alt = elem.alt;
-        modal.showModal()
+        modal.showModal();
       }
     
   document.addEventListener("click", (e) => {
     if (e.target.matches(".modal") || e.target.matches(".modal-close-btn")) {
-      modal.close()
+      modal.close();
     }
-  })
+  });
 
   document.addEventListener("keypress", (e) => {
     if (e.target.matches(".modal") || e.target.matches(".modal-close-btn")) {
-      modal.close()
+      modal.close();
     }
-  })
+  });
 
 }
