@@ -3,14 +3,21 @@ import { url, categoriesUrl, postsEmbed, blogContainer, categoryToggle, category
 import { makePostHtml, buildCategoriesMenu } from "../js/Components/renderHTML.js";
 import { errorMessage } from "../js/Components/displayMessage.js";
 
-const sortedByTitle = document.querySelector(".blog-category-container span")
+const categoryTitle = document.querySelector(".blog-category-container span")
+const sortedByTitle = document.querySelector(".blog-date-container span")
 
-console.log(sortedByTitle.innerText)
+const queryString = document.location.search;
+const params = new URLSearchParams(queryString);
+const category = params.get("category");
 
 // API call for posts and load more //
 let pageNumber = 1;
 let sort = "";
 let postPageUrl = url + postsEmbed + "&page=" + pageNumber + sort;
+
+if (category !== null) {
+  postPageUrl = url + postsEmbed + "&categories=" + category + "&page" + pageNumber;
+}
 
 async function fetchBlogs(posts) {
   try {
@@ -38,24 +45,24 @@ async function fetchCategories(categories) {
 fetchCategories(categoriesUrl);
 
 // sorting by category
-function sortPosts(event) {
+function sortPostsByCategory(event) {
   let categoryId = event.target.value;
-  let categoryText = event.target.innerText
+  let categoryText = event.target.innerText;
   pageNumber = 1;
-  sortedByTitle.innerText = "Category: "
+  categoryTitle.innerText = "Category:";
 
   if (categoryId <= 0) {
     sort = "";
+    console.log("gi")
     postPageUrl = url + postsEmbed + "&page=" + pageNumber + sort;
     blogContainer.innerHTML = "";
-    sortedByTitle.innerText = "Category: All"
+    categoryTitle.innerText = "Category: All"
     fetchBlogs(postPageUrl);
   } else {
     sort = "&categories=" + categoryId;
     postPageUrl = url + postsEmbed + "&page=" + pageNumber + sort;
     blogContainer.innerHTML = "";
-    
-    sortedByTitle.innerText = sortedByTitle.innerText + " " + categoryText;
+    categoryTitle.innerText = categoryTitle.innerText + " " + categoryText;
     fetchBlogs(postPageUrl);
   }
 }
@@ -64,10 +71,17 @@ categoryToggle.addEventListener("click", () => {
   categoryList.classList.toggle("active");
 });
 
+// bygge videre med å sette click på cta container som fjerner active for å  unngå å få feil på url (undefined)
+
+categoryToggle.addEventListener("mouseout", () => {
+  categoryToggle.style
+});
+
+
 const categoryListClose = document.querySelectorAll(".category-list");
 categoryListClose.forEach(function (categoryMenu) {
   categoryMenu.onclick = function (category) {
-    sortPosts(category)
+    sortPostsByCategory(category)
     categoryList.classList.remove("active");
   }
 });
@@ -75,7 +89,7 @@ categoryListClose.forEach(function (categoryMenu) {
 categoryListClose.forEach(function (categoryMenu) {
   categoryMenu.addEventListener("keydown", (category) => {
     if (category.keyCode === 13) {
-      sortPosts(category)
+      sortPostsByCategory(category)
       categoryList.classList.remove("active");
     }
   })
@@ -91,13 +105,17 @@ document.addEventListener("click", function (e) {
 // sorting by date
 function sortByDate(event) {
   let sortByDate = event.target.value;
+  let sortedbyText = event.target.innerText;
+  sortedByTitle.innerText = "Sorted by:";
   pageNumber = 1;
   if (sortByDate === 99) {
     postPageUrl = url + postsEmbed + sort + "&order=desc&page=" + pageNumber;
+    sortedByTitle.innerText = "Sorted by:" + sortedbyText;
     blogContainer.innerHTML = "";
     fetchBlogs(postPageUrl);
   } else {
     postPageUrl = url + postsEmbed + sort + "&order=asc&page=" + pageNumber;
+    sortedByTitle.innerText = "Sorted by:" + sortedbyText; 
     blogContainer.innerHTML = "";
     fetchBlogs(postPageUrl);
   }
