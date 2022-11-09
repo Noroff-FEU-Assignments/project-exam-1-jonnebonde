@@ -246,17 +246,19 @@
 
   .category-list.active,
   .date-list.active {
-    top: 262px;
+    top: 232px;
+    width: 80%;
+    margin: 0 auto;
   }
 
   .date-list.active {
     left: 50%;
-    margin-left: -50px;
+    margin-left: -40%;
   }
 
   .category-list.active {
     right: 50%;
-    margin-right: -40px;
+    margin-right: -40%;
   }
 
   .filter-button,
@@ -290,16 +292,7 @@
     top: 50px;
   }
   
-  .date-list.active {
-    left: 50%;
-    margin-left: -100px;
-  }
-
-  .category-list.active {
-    right: 50%;
-    margin-right: -100px;
-  }
-
+  
 }
 
 @media screen and (max-width: 350px) {

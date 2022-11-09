@@ -2,6 +2,7 @@
 
 .index-top-image-container {
   background-image: url(../media/images/main_image.jpg);
+  background-color: var(--less-black);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -164,6 +165,7 @@
 .carousel-img-container,
 .blog-blogs-image-container,
 .popular-img-container {
+  background-color: var(--less-black);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -404,6 +406,7 @@
 }
 
 .blog-blogs-image-container {
+  background-color: var(--less-black);
   background-size: cover;
   height: 300px;
   opacity: 0.85;

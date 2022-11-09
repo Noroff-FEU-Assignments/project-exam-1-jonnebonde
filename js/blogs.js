@@ -6,18 +6,18 @@ import { errorMessage } from "../js/Components/displayMessage.js";
 const categoryTitle = document.querySelector(".blog-category-container span")
 const sortedByTitle = document.querySelector(".blog-date-container span")
 
-const queryString = document.location.search;
+/* const queryString = document.location.search;
 const params = new URLSearchParams(queryString);
-const category = params.get("category");
+const category = params.get("category"); */
 
 // API call for posts and load more //
 let pageNumber = 1;
 let sort = "";
 let postPageUrl = url + postsEmbed + "&page=" + pageNumber + sort;
 
-if (category !== null) {
+/* if (category !== null) {
   postPageUrl = url + postsEmbed + "&categories=" + category + "&page" + pageNumber;
-}
+} */
 
 async function fetchBlogs(posts) {
   try {
