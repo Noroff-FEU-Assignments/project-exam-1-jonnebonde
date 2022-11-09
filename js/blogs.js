@@ -1,5 +1,5 @@
 import { apiCall, apiCallPost } from "../js/utils/utilities.js";
-import { url, categoriesUrl, postsEmbed, blogContainer, categoryToggle, categoryList, categoryContainer, dateToggle, dateListClose, dateContainer, dateList, loadBtn} from "../js/constants/constants.js";
+import { url, categoriesUrl, postsEmbed, blogContainer, categoryToggle, categoryList, categoryContainer, dateToggle, dateListClose, dateContainer, dateList, loadBtn } from "../js/constants/constants.js";
 import { makePostHtml, buildCategoriesMenu } from "../js/Components/renderHTML.js";
 import { errorMessage } from "../js/Components/displayMessage.js";
 
@@ -51,18 +51,18 @@ function sortPostsByCategory(event) {
   pageNumber = 1;
   categoryTitle.innerText = "Category:";
 
-  if (categoryId <= 0) {
-    sort = "";
-    console.log("gi")
-    postPageUrl = url + postsEmbed + "&page=" + pageNumber + sort;
-    blogContainer.innerHTML = "";
-    categoryTitle.innerText = "Category: All"
-    fetchBlogs(postPageUrl);
-  } else {
+  if (categoryId >= 1) {
     sort = "&categories=" + categoryId;
     postPageUrl = url + postsEmbed + "&page=" + pageNumber + sort;
     blogContainer.innerHTML = "";
     categoryTitle.innerText = categoryTitle.innerText + " " + categoryText;
+    fetchBlogs(postPageUrl);
+  }
+  else {
+    sort = "";
+    postPageUrl = url + postsEmbed + "&page=" + pageNumber + sort;
+    blogContainer.innerHTML = "";
+    categoryTitle.innerText = "Category: All"
     fetchBlogs(postPageUrl);
   }
 }
@@ -71,12 +71,9 @@ categoryToggle.addEventListener("click", () => {
   categoryList.classList.toggle("active");
 });
 
-// bygge videre med å sette click på cta container som fjerner active for å  unngå å få feil på url (undefined)
-
 categoryToggle.addEventListener("mouseout", () => {
   categoryToggle.style
 });
-
 
 const categoryListClose = document.querySelectorAll(".category-list");
 categoryListClose.forEach(function (categoryMenu) {
@@ -115,7 +112,7 @@ function sortByDate(event) {
     fetchBlogs(postPageUrl);
   } else {
     postPageUrl = url + postsEmbed + sort + "&order=asc&page=" + pageNumber;
-    sortedByTitle.innerText = "Sorted by:" + sortedbyText; 
+    sortedByTitle.innerText = "Sorted by:" + sortedbyText;
     blogContainer.innerHTML = "";
     fetchBlogs(postPageUrl);
   }
