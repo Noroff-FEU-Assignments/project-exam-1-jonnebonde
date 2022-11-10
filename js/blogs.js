@@ -118,7 +118,6 @@ dateToggle.addEventListener("click", () => {
 
 dateListClose.forEach(function (dateMenu) {
   dateMenu.onclick = function (date) {
-    console.log(date.target.value)
     if (!date.target.value) {
       dateList.classList.remove("active");
     } else {
