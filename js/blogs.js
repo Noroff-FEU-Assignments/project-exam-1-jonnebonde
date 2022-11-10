@@ -1,5 +1,5 @@
 import { apiCall, apiCallPost } from "../js/utils/utilities.js";
-import { url, categoriesUrl, postsEmbed, blogContainer, categoryToggle, categoryList, categoryContainer, dateToggle, dateListClose, dateContainer, dateList, loadBtn } from "../js/constants/constants.js";
+import { url, categoriesUrl, postsEmbed, blogContainer, categoryToggle, categoryList, categoryContainer, categoryListClose, dateToggle, dateContainer, dateList, dateListClose, loadBtn, backToTopBtn } from "../js/constants/constants.js";
 import { makePostHtml, buildCategoriesMenu } from "../js/Components/renderHTML.js";
 import { errorMessage } from "../js/Components/displayMessage.js";
 
@@ -15,9 +15,7 @@ let postPageUrl = embeddedPostUrl + "&page=" + pageNumber + sort;
 
 async function fetchBlogs(posts) {
   try {
-    console.log(posts)
     const apiData = await apiCall(posts);
-    console.log(apiData)
     loadPosts(apiData);
   }
   catch (error) {
@@ -47,7 +45,6 @@ function sortPostsByCategory(event) {
   pageNumber = 1;
   categoryTitle.innerText = "Category:";
 
-if(categoryId !== undefined) {
   if (categoryId >= 1) {
     sort = "&categories=" + categoryId;
     postPageUrl = embeddedPostUrl + "&page=" + pageNumber + sort;
@@ -63,17 +60,20 @@ if(categoryId !== undefined) {
     fetchBlogs(postPageUrl);
   }
 }
-}
 
 categoryToggle.addEventListener("click", () => {
   categoryList.classList.toggle("active");
 });
 
-const categoryListClose = document.querySelectorAll(".category-list");
 categoryListClose.forEach(function (categoryMenu) {
   categoryMenu.onclick = function (category) {
-    sortPostsByCategory(category)
-    categoryList.classList.remove("active");
+    if (!category.target.value) {
+      categoryList.classList.remove("active");
+    }
+    else {
+      sortPostsByCategory(category)
+      categoryList.classList.remove("active");
+    }
   }
 });
 
@@ -118,8 +118,13 @@ dateToggle.addEventListener("click", () => {
 
 dateListClose.forEach(function (dateMenu) {
   dateMenu.onclick = function (date) {
-    sortByDate(date);
-    dateList.classList.remove("active");
+    console.log(date.target.value)
+    if (!date.target.value) {
+      dateList.classList.remove("active");
+    } else {
+      sortByDate(date);
+      dateList.classList.remove("active");
+    }
   }
 });
 
@@ -169,8 +174,6 @@ function checkPage(apiData) {
 
 // back to top btn
 // inspiration from frecodecamp.org
-const backToTopBtn = document.getElementById("to-top-btn");
-
 function goToTop() {
   document.body.scrollIntoView({
     behavior: "smooth",

@@ -20,14 +20,16 @@ export const popularPostsContainer = document.querySelector(".index-most_popular
 // Container for sorting category, date and loadmore button
 export const categoryToggle = document.getElementById("category");
 export const categoryList = document.querySelector(".category-list");
+export const categoryListClose = document.querySelectorAll(".category-list");
 export const categoryContainer = document.querySelector(".blog-category-container");
 
 export const dateToggle = document.getElementById("date");
 export const dateList = document.querySelector(".date-list");
-export const dateListClose = document.querySelectorAll(".date-list li");
+export const dateListClose = document.querySelectorAll(".date-list");
 export const dateContainer = document.querySelector(".blog-date-container");
 
 export const loadBtn = document.getElementById("load-more-btn");
+export const backToTopBtn = document.getElementById("to-top-btn");
 
 // Form validation
 export const hiddenInput = document.getElementById("hidden");
