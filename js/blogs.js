@@ -6,16 +6,18 @@ import { errorMessage } from "../js/Components/displayMessage.js";
 const categoryTitle = document.querySelector(".blog-category-container span")
 const sortedByTitle = document.querySelector(".blog-date-container span")
 
+
 // API call for posts and load more //
+const embeddedPostUrl = url + postsEmbed;
 let pageNumber = 1;
 let sort = "";
-let postPageUrl = url + postsEmbed + "&page=" + pageNumber + sort;
-
-
+let postPageUrl = embeddedPostUrl + "&page=" + pageNumber + sort;
 
 async function fetchBlogs(posts) {
   try {
+    console.log(posts)
     const apiData = await apiCall(posts);
+    console.log(apiData)
     loadPosts(apiData);
   }
   catch (error) {
@@ -40,33 +42,31 @@ fetchCategories(categoriesUrl);
 
 // sorting by category
 function sortPostsByCategory(event) {
-  let categoryId = event.target.value;
-  let categoryText = event.target.innerText;
+  const categoryId = event.target.value;
+  const categoryText = event.target.innerText;
   pageNumber = 1;
   categoryTitle.innerText = "Category:";
 
+if(categoryId !== undefined) {
   if (categoryId >= 1) {
     sort = "&categories=" + categoryId;
-    postPageUrl = url + postsEmbed + "&page=" + pageNumber + sort;
+    postPageUrl = embeddedPostUrl + "&page=" + pageNumber + sort;
     blogContainer.innerHTML = "";
     categoryTitle.innerText = categoryTitle.innerText + " " + categoryText;
     fetchBlogs(postPageUrl);
   }
   else {
     sort = "";
-    postPageUrl = url + postsEmbed + "&page=" + pageNumber + sort;
+    postPageUrl = embeddedPostUrl + "&page=" + pageNumber + sort;
     blogContainer.innerHTML = "";
     categoryTitle.innerText = "Category: All"
     fetchBlogs(postPageUrl);
   }
 }
+}
 
 categoryToggle.addEventListener("click", () => {
   categoryList.classList.toggle("active");
-});
-
-categoryToggle.addEventListener("mouseout", () => {
-  categoryToggle.style
 });
 
 const categoryListClose = document.querySelectorAll(".category-list");
@@ -100,12 +100,12 @@ function sortByDate(event) {
   sortedByTitle.innerText = "Sorted by:";
   pageNumber = 1;
   if (sortByDate === 99) {
-    postPageUrl = url + postsEmbed + sort + "&order=desc&page=" + pageNumber;
+    postPageUrl = embeddedPostUrl + sort + "&order=desc&page=" + pageNumber;
     sortedByTitle.innerText = "Sorted by:" + sortedbyText;
     blogContainer.innerHTML = "";
     fetchBlogs(postPageUrl);
   } else {
-    postPageUrl = url + postsEmbed + sort + "&order=asc&page=" + pageNumber;
+    postPageUrl = embeddedPostUrl + sort + "&order=asc&page=" + pageNumber;
     sortedByTitle.innerText = "Sorted by:" + sortedbyText;
     blogContainer.innerHTML = "";
     fetchBlogs(postPageUrl);
@@ -148,7 +148,7 @@ function loadPosts(apiData) {
 // load more posts by changing url page parameter
 function loadMore() {
   pageNumber++;
-  postPageUrl = url + postsEmbed + "&page=" + pageNumber + sort;
+  postPageUrl = embeddedPostUrl + "&page=" + pageNumber + sort;
   fetchBlogs(postPageUrl);
 }
 
@@ -156,7 +156,7 @@ loadBtn.addEventListener("click", () => {
   loadMore()
 });
 
-// checks pagenumber against max pages in api response header and hides button if reached max pages
+// checks pagenumber against max pages in api response header and disable button if reached max pages
 function checkPage(apiData) {
   let totalPages = apiData[1];
   if (pageNumber <= totalPages - 1) {
