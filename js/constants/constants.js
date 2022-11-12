@@ -31,6 +31,9 @@ export const dateContainer = document.querySelector(".blog-date-container");
 export const loadBtn = document.getElementById("load-more-btn");
 export const backToTopBtn = document.getElementById("to-top-btn");
 
+export const categoryTitle = document.querySelector(".blog-category-container span")
+export const sortedByTitle = document.querySelector(".blog-date-container span")
+
 // Form validation
 export const hiddenInput = document.getElementById("hidden");
 

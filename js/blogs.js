@@ -1,10 +1,7 @@
 import { apiCall, apiCallPost } from "../js/utils/utilities.js";
-import { url, categoriesUrl, postsEmbed, blogContainer, categoryToggle, categoryList, categoryContainer, categoryListClose, dateToggle, dateContainer, dateList, dateListClose, loadBtn, backToTopBtn } from "../js/constants/constants.js";
+import { url, categoriesUrl, postsEmbed, blogContainer, categoryToggle, categoryList, categoryContainer, categoryListClose, dateToggle, dateContainer, dateList, dateListClose, loadBtn, backToTopBtn, categoryTitle, sortedByTitle } from "../js/constants/constants.js";
 import { makePostHtml, buildCategoriesMenu } from "../js/Components/renderHTML.js";
 import { errorMessage } from "../js/Components/displayMessage.js";
-
-const categoryTitle = document.querySelector(".blog-category-container span")
-const sortedByTitle = document.querySelector(".blog-date-container span")
 
 
 // API call for posts and load more //
