@@ -1,4 +1,4 @@
-import { popularPostsContainer, carouselContainer, sliderLoader, blogsLoader, blogContainer, postContainer, postPageTitle, postCommentsContainer } from "../constants/constants.js";
+import { popularPostsContainer, carouselContainer, sliderLoader, blogsLoader, blogContainer, postContainer, postPageTitle, postCommentsContainer, metaDescription } from "../constants/constants.js";
 import { newDateFormat, modal } from "../utils/utilities.js";
 
 // making html for carousel 
@@ -119,7 +119,9 @@ export function makePostHtml(postData) {
 
 // make html for single post
 export function singlePostHtml(apiPost) {
+
   const date = newDateFormat(apiPost[0].date);
+  metaDescription.content = `A post about ${apiPost[0].title.rendered} on a blog about 3D-printing as a hobby`;
   postPageTitle.innerHTML = `3D-Printing For All | ${apiPost[0].title.rendered}`;
 
   postContainer.innerHTML = `
