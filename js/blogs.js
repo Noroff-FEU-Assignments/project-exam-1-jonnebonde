@@ -40,7 +40,8 @@ function sortPostsByCategory(event) {
   const categoryId = event.target.value;
   const categoryText = event.target.innerText;
   pageNumber = 1;
-  categoryTitle.innerText = "Category:";
+  categoryTitle.innerText = "Category: ";
+
 
   if (categoryId >= 1) {
     sort = "&categories=" + categoryId;
@@ -64,13 +65,13 @@ categoryToggle.addEventListener("click", () => {
 
 categoryListClose.forEach(function (categoryMenu) {
   categoryMenu.onclick = function (category) {
-    if (!category.target.value) {
+    if (category.target.value < 0) {
       categoryList.classList.remove("active");
     }
     else {
       sortPostsByCategory(category)
       categoryList.classList.remove("active");
-    }
+    } 
   }
 });
 
@@ -98,12 +99,12 @@ function sortByDate(event) {
   pageNumber = 1;
   if (sortByDate === 99) {
     postPageUrl = embeddedPostUrl + sort + "&order=desc&page=" + pageNumber;
-    sortedByTitle.innerText = "Sorted by:" + sortedbyText;
+    sortedByTitle.innerText = "Sorted by: " + sortedbyText;
     blogContainer.innerHTML = "";
     fetchBlogs(postPageUrl);
   } else {
     postPageUrl = embeddedPostUrl + sort + "&order=asc&page=" + pageNumber;
-    sortedByTitle.innerText = "Sorted by:" + sortedbyText;
+    sortedByTitle.innerText = "Sorted by: " + sortedbyText;
     blogContainer.innerHTML = "";
     fetchBlogs(postPageUrl);
   }
