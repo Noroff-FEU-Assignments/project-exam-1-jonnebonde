@@ -16,7 +16,6 @@ export const postContainer = document.querySelector(".post-content-container");
 export const postCommentsContainer = document.querySelector(".post-comments-container");
 export const popularPostsContainer = document.querySelector(".index-most_popular-posts-container");
 
-export const metaDescription = document.getElementById("site-description");
 export const postPageTitle = document.querySelector("title");
 
 // Container for sorting category, date and loadmore button
