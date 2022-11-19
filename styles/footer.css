@@ -18,7 +18,7 @@ footer {
   transition: var(--transition-easeInOut);
 }
 
-.footer-menu-container a:is(:hover,:focus) {
+.footer-menu-container a:is(:hover, :focus) {
   text-decoration: underline;
   transition: var(--transition-easeInOut);
 }
@@ -56,11 +56,11 @@ footer {
   width: 5rem;
   transition: var(--transition-easeInOut);
   border-radius: 0 3px 3px 0;
-  -webkit-appearance: none !important;
+  border-color: var(--black);
+  -webkit-appearance: none;
 }
 
-
-#submit-subscribe:is(:hover,:focus) {
+#submit-subscribe:is(:hover, :focus) {
   background-color: var(--white);
   color: var(--black);
   border: 2px solid var(--black);
@@ -71,7 +71,7 @@ footer {
 .socialmedia_icons {
   justify-content: flex-end;
   width: 100%;
-  
+
   margin: 1.25rem;
 }
 
@@ -81,11 +81,11 @@ footer {
   margin: 0.625rem;
 }
 
-  .socialmedia_icons img:hover,
-  .socialmedia_icons a:focus {
-    transition: var(--transition-easeInOut);
-    transform: scale(1.4);
-  }
+.socialmedia_icons img:hover,
+.socialmedia_icons a:focus {
+  transition: var(--transition-easeInOut);
+  transform: scale(1.4);
+}
 
 .made-by-me-container {
   text-align: center;

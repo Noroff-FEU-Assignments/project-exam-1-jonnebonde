@@ -48,6 +48,7 @@ function sortPostsByCategory(event) {
     postPageUrl = embeddedPostUrl + "&page=" + pageNumber + sort;
     blogContainer.innerHTML = "";
     categoryTitle.innerText = categoryTitle.innerText + " " + categoryText;
+    sortedByTitle.innerText = "Sorted by: Newest";
     fetchBlogs(postPageUrl);
   }
   else {
@@ -55,6 +56,7 @@ function sortPostsByCategory(event) {
     postPageUrl = embeddedPostUrl + "&page=" + pageNumber + sort;
     blogContainer.innerHTML = "";
     categoryTitle.innerText = "Category: All"
+    sortedByTitle.innerText = "Sorted by: Newest";
     fetchBlogs(postPageUrl);
   }
 }
@@ -95,7 +97,7 @@ document.addEventListener("click", function (e) {
 function sortByDate(event) {
   let sortByDate = event.target.value;
   let sortedbyText = event.target.innerText;
-  sortedByTitle.innerText = "Sorted by:";
+  sortedByTitle.innerText = "Sorted by: ";
   pageNumber = 1;
   if (sortByDate === 99) {
     postPageUrl = embeddedPostUrl + sort + "&order=desc&page=" + pageNumber;

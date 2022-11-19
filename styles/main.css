@@ -73,11 +73,12 @@
 }
 
 .blog-post-carousel {
+  position: relative;
   align-items: center;
   overflow: hidden;
   margin: 0 auto;
-  width: 80%;
-  border-radius: 3px;
+  width: 90%;
+  border-radius: var(--br-full);
 }
 
 .blog-post-carousel a {
@@ -97,9 +98,9 @@
 .blog-post-carousel-container > .carousel-post,
 .carousel-see_all_posts-container {
   flex: 0 0 calc(100% / var(--blogs-per-screen));
-  max-width: calc(100% / var(--blogs-per-screen) - 40px);
+  max-width: calc(100% / var(--blogs-per-screen) - 30px);
   border-radius: 3px;
-  margin: 20px;
+  margin: 10px;
   background-color: var(--white);
   position: relative;
   scroll-behavior: smooth;
@@ -117,8 +118,8 @@
 .blog-post-text-container,
 .popular-post-text {
   align-items: flex-start;
-  margin-left: 5%;
   font-size: var(--fs-post-info);
+  margin: 3px 0 3px 4%;
 }
 
 .carousel-readmore {
@@ -198,6 +199,8 @@
 
 .next-btn {
   border-radius: 0 5px 5px 0;
+  position: absolute;
+  right: 0;
 }
 
 .previous-btn {
