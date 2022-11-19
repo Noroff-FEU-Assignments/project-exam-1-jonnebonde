@@ -17,30 +17,38 @@ function validateInputs(event) {
   if (name) {
     nameError.style.visibility = "hidden";
     nameValid.style.color = "#EEEEEE";
-    nameValid.style.backgroundColor = "#00540A"
+    nameValid.style.backgroundColor = "#00540A";
   } else {
     nameError.style.visibility = "visible";
+    nameValid.style.backgroundColor = "";
+    nameValid.style.color = "";
   }
   if (subject) {
     subjectError.style.visibility = "hidden";
     subjectValid.style.color = "#EEEEEE";
-    subjectValid.style.backgroundColor = "#00540A"
+    subjectValid.style.backgroundColor = "#00540A";
   } else {
     subjectError.style.visibility = "visible";
+    subjectValid.style.color = "";
+    subjectValid.style.backgroundColor = "";
   }
   if (email) {
     emailError.style.visibility = "hidden";
     emailValid.style.color = "#EEEEEE";
-    emailValid.style.backgroundColor = "#00540A"
+    emailValid.style.backgroundColor = "#00540A";
   } else {
     emailError.style.visibility = "visible";
+    emailValid.style.color = "";
+    emailValid.style.backgroundColor = "";
   }
   if (message) {
     messageError.style.visibility = "hidden";
     messageValid.style.color = "#EEEEEE";
-    messageValid.style.backgroundColor = "#00540A"
+    messageValid.style.backgroundColor = "#00540A";
   } else {
     messageError.style.visibility = "visible";
+    messageValid.style.color = "";
+    messageValid.style.backgroundColor = "";
   }
   if (hidden) {
     return;

@@ -608,7 +608,6 @@
 
 .comment-form label,
 .contact-form label {
-  margin-top: 15px;
   padding: 5px;
   background-color: var(--light-orange);
   border-radius: var(--br-full);

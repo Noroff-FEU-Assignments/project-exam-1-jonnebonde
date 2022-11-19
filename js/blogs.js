@@ -55,7 +55,7 @@ function sortPostsByCategory(event) {
     sort = "";
     postPageUrl = embeddedPostUrl + "&page=" + pageNumber + sort;
     blogContainer.innerHTML = "";
-    categoryTitle.innerText = "Category: All"
+    categoryTitle.innerText = "Category: All";
     sortedByTitle.innerText = "Sorted by: Newest";
     fetchBlogs(postPageUrl);
   }

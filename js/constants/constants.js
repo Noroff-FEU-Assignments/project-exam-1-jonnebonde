@@ -4,7 +4,7 @@ export const postsEmbed = "posts?_embed";
 export const postUrl = "posts?include=";
 export const commentsUrl = url + "comments/";
 export const contactFormUrl = "https://jonnekrosby.site/project-exam1/wp-json/contact-form-7/v1/contact-forms/190/feedback";
-export const categoriesUrl = url + "categories?_embed"
+export const categoriesUrl = url + "categories?_embed";
 
 // containers for HTML and loaders
 export const carouselContainer = document.querySelector(".blog-post-carousel-container");
@@ -32,8 +32,8 @@ export const dateContainer = document.querySelector(".blog-date-container");
 export const loadBtn = document.getElementById("load-more-btn");
 export const backToTopBtn = document.getElementById("to-top-btn");
 
-export const categoryTitle = document.querySelector(".blog-category-container span")
-export const sortedByTitle = document.querySelector(".blog-date-container span")
+export const categoryTitle = document.querySelector(".blog-category-container span");
+export const sortedByTitle = document.querySelector(".blog-date-container span");
 
 // Form validation
 export const hiddenInput = document.getElementById("hidden");

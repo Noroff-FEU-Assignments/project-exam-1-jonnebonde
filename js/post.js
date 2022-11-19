@@ -28,7 +28,7 @@ async function fetchComments() {
     const postComments = await apiCallPost(commentsDataUrl);
 
     if (postComments.length === 0) {
-      noCommentsHtml()
+      noCommentsHtml();
     } else {
       commentsHtml(postComments);
     }
@@ -49,7 +49,7 @@ function validateCommentsInputs(event) {
   event.preventDefault();
 
   const name = checkLength(nameInput.value, 1);
-  const message = checkLength(messageInput.value, 4);
+  const message = checkLength(messageInput.value, 9);
   const hidden = checkLength(hiddenInput.value, 1);
 
   if (name) {
@@ -59,6 +59,7 @@ function validateCommentsInputs(event) {
   } else {
     nameError.style.visibility = "visible";
     nameValid.style.color = "black";
+    nameValid.style.backgroundColor = "";
   }
   if (message) {
     messageError.style.visibility = "hidden";
@@ -67,6 +68,7 @@ function validateCommentsInputs(event) {
   } else {
     messageError.style.visibility = "visible";
     messageValid.style.color = "black";
+    messageValid.style.backgroundColor = "";
   }
   if (hidden) {
     return;
