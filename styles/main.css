@@ -73,11 +73,10 @@
 }
 
 .blog-post-carousel {
-  position: relative;
   align-items: center;
   overflow: hidden;
   margin: 0 auto;
-  width: 90%;
+  width: 80%;
   border-radius: var(--br-full);
 }
 
@@ -98,7 +97,7 @@
 .blog-post-carousel-container > .carousel-post,
 .carousel-see_all_posts-container {
   flex: 0 0 calc(100% / var(--blogs-per-screen));
-  max-width: calc(100% / var(--blogs-per-screen) - 30px);
+  max-width: calc(100% / var(--blogs-per-screen) - 20px);
   border-radius: 3px;
   margin: 10px;
   background-color: var(--white);
@@ -199,8 +198,6 @@
 
 .next-btn {
   border-radius: 0 5px 5px 0;
-  position: absolute;
-  right: 0;
 }
 
 .previous-btn {

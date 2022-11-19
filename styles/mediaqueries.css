@@ -219,6 +219,13 @@
     --blogs-per-screen: 1;
   }
 
+  .blog-post-carousel-container > .carousel-post,
+.carousel-see_all_posts-container {
+
+  max-width: calc(100% / var(--blogs-per-screen) - 40px);
+  margin: 20px;
+}
+
   .carousel-img-container {
     width: auto;
     margin: 0;
