@@ -127,7 +127,7 @@ export function singlePostHtml(apiPost) {
       <div class="post-content-cointainer flex-col-center">
         <div class="post-title-container">
           <h1>${apiPost[0].title.rendered}</h1>
-          <span>Author: ${apiPost[0]._embedded.author[0].name}, Posted:${date}</span>
+          <span>Author: ${apiPost[0]._embedded.author[0].name}, Posted: ${date}</span>
         </div> 
         <div class="post-content-rendered flex-col-center">${apiPost[0].content.rendered}</div>
       </div>`;
