@@ -184,6 +184,10 @@
     width: 80%;
   }
 
+  #submit-subscribe {
+    border-color: var(--black);
+  }
+
   .post-content-rendered figure,
   .post-content-rendered p,
   .blog-blogs-container {

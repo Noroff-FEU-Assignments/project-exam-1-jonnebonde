@@ -56,7 +56,6 @@ footer {
   width: 5rem;
   transition: var(--transition-easeInOut);
   border-radius: 0 3px 3px 0;
-  border-color: var(--black);
   -webkit-appearance: none;
 }
 
