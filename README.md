@@ -49,9 +49,11 @@ If u have any useful feedback about the site let me know through one of my conta
 
 This is where you can leave your social links for people to contact you, such as a LinkedIn profile or Twitter link e.g.
 
-Email: Jonnebonde@gmail.com
-[LinkedIn](https://www.linkedin.com/in/jonne-martin-krosby-a689ba1b1/)
-discord: discordapp.com/users/9504
+- Email: ```jonnebonde@gmail.com```
+
+
+- [LinkedIn](https://www.linkedin.com/in/jonne-martin-krosby-a689ba1b1/)
+- discord: (https://www.discordapp.com/users/9504)
 
 ## License
 
