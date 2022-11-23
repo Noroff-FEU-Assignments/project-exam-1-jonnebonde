@@ -1,6 +1,7 @@
 # 3D-printing for all
 
-![image](https://user-images.githubusercontent.com/52622303/164316813-4b12d99f-aeb7-4069-85cf-e72b3a50ac99.png)
+![image](https://user-images.githubusercontent.com/71976475/203512299-02172208-5b52-4077-815c-d55ebd47a480.png)
+
 
 This is my Project exam 1 from my first year at Noroff front-end course.
 
@@ -26,6 +27,9 @@ Features of site:
 - Css
 - Wordpres CMS
 
+## Preview live site
+
+Livesite url: https://3d-printing-for-all.netlify.app/
 
 ### Installing
 
