@@ -48,7 +48,7 @@ git clone git@github.com:Noroff-FEU-Assignments/project-exam-1-jonnebonde.git
 If all files are cloned and runned live on your prefered live host or on localhost, the site should work and receive content from the CMS.
 
 ## Feedback
-If u have any useful feedback about the site let me know through one of my contact methods.
+If u have any useful feedback about the site let me know through one of my contact methods written below.
 
 ## Contact
 
@@ -58,7 +58,7 @@ This is where you can leave your social links for people to contact you, such as
 
 
 - [LinkedIn](https://www.linkedin.com/in/jonne-martin-krosby-a689ba1b1/)
-- discord: (https://www.discordapp.com/users/9504)
+- discord: https://www.discordapp.com/users/9504
 
 ## License
 
