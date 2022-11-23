@@ -31,6 +31,8 @@ Features of site:
 
 Livesite url: https://3d-printing-for-all.netlify.app/
 
+## Getting started
+
 ### Installing
 
 This is where you list how to get the project started. It typically just includes telling a person to clone the repo and then to install the dependencies e.g.
@@ -41,6 +43,9 @@ Clone the repo:
 git clone git@github.com:Noroff-FEU-Assignments/project-exam-1-jonnebonde.git
 
 ```
+### Running
+
+If all files are cloned and runned live on your prefered live host or on localhost, the site should work and receive content from the CMS.
 
 ## Feedback
 If u have any useful feedback about the site let me know through one of my contact methods.
