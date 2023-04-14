@@ -36,7 +36,7 @@ async function fetchCategories(categories) {
 fetchCategories(categoriesUrl);
 
 // sorting by category
-function sortPostsByCategory(event) {
+export function sortPostsByCategory(event) {
   const categoryId = event.target.value;
   const categoryText = event.target.innerText;
   pageNumber = 1;
