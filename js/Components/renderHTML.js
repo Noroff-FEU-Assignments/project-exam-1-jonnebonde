@@ -1,6 +1,6 @@
 import { popularPostsContainer, carouselContainer, sliderLoader, blogsLoader, blogContainer, postContainer, postPageTitle, postCommentsContainer } from "../constants/constants.js";
 import { newDateFormat, modal } from "../utils/utilities.js";
-import { sortPostsByCategory } from "../blogs.js";
+
 
 // making html for carousel 
 export function makePostCarouselSLiderHtml(blogPosts) {
@@ -109,24 +109,13 @@ export function makePostHtml(postData) {
                     <span><strong>Author:</strong> ${posts._embedded.author[0].name}</span>
                     <span><strong>Posted:</strong> ${date}</span>
                     <div class="blog-post-category-container flex"> 
-                      <span><strong>Category: </strong></span>
-                      <button class="blog-post-category-btn" id="blog-post-slug-cta" value="${posts._embedded["wp:term"][0][0].id}" tabindex="-1"> ${posts._embedded["wp:term"][0][0].name}</button>
+                      <span><strong>Category:</strong>  ${posts._embedded["wp:term"][0][0].name}</span>
                     </div>
                 </div>
                     <a class="blog-post-cta" href="post.html?post=${posts.id}">Read more</a>
             </div>`;
   })
 
-  const blogPostCategory = document.querySelectorAll(".blog-post-category-btn");
-  console.log(blogPostCategory);
-
-  blogPostCategory.forEach(function (category) {
-    category.onclick = function (cat) {
-      const categoryValue = cat;
-      console.log(categoryValue);
-      sortPostsByCategory(categoryValue);
-    }
-  });
 }
 // make html for single post
 export function singlePostHtml(apiPost) {

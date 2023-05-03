@@ -14,6 +14,7 @@ const singlePostUrl = url + postUrl + postId + "&_embed";
 async function fetchPost(post) {
   try {
     const apiPost = await apiCallPost(post);
+    console.log(apiPost)
     singlePostHtml(apiPost);
   } catch (error) {
     postContainer.innerHTML = errorMessage("Something went wrong getting this post!!");

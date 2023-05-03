@@ -10,6 +10,8 @@ const popularPostsUrl = url + postsEmbed + "&per_page=100";
 async function fetchApi() {
   try {
     const apiData = await apiCallPost(sliderPostsUrl);
+
+    console.log(apiData)
     makePostCarouselSLiderHtml(apiData);
 
     document.addEventListener("click", (e) => {

@@ -13,6 +13,7 @@ let postPageUrl = embeddedPostUrl + "&page=" + pageNumber + sort;
 async function fetchBlogs(posts) {
   try {
     const apiData = await apiCall(posts);
+    console.log(apiData)
     loadPosts(apiData);
   }
   catch (error) {
@@ -36,7 +37,7 @@ async function fetchCategories(categories) {
 fetchCategories(categoriesUrl);
 
 // sorting by category
-export function sortPostsByCategory(event) {
+function sortPostsByCategory(event) {
   const categoryId = event.target.value;
   const categoryText = event.target.innerText;
   pageNumber = 1;
